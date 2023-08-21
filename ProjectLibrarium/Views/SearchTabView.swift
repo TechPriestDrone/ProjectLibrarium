@@ -6,26 +6,41 @@
 //
 
 import SwiftUI
-
+@MainActor
 struct SearchTabView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
     var body: some View {
         NavigationView{
-            VStack{
-                Button {
-                    Task{
-                        await findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry)
+            ScrollView{
+                VStack{
+                    Button {
+                        Task{
+                            await librariumViewModel.findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry)
+                            print(librariumViewModel.searchResults)
+                            print(librariumViewModel.userSearchQuerry)
+                        }
+                    } label: {
+                        ZStack{
+                            Image(systemName: "bookmark")
+                                .resizable()
+                                .frame(width: 50, height: 80)
+                            Text("Find")
+                                .searchable(text: $librariumViewModel.userSearchQuerry, prompt: "What do you want to read")
+                        }
                     }
-                } label: {
-                    ZStack{
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .frame(width: 50, height: 80)
-                        Text("Find")
-                            .searchable(text: $librariumViewModel.userSearchQuerry, prompt: "What do you want to read")
+                    
+                    Spacer()
+                    ForEach(librariumViewModel.searchResults, id: \.key) { book in
+                        Text(book.title)
+                        if let rating = book.ratings_average {
+                            Text("\(rating)")
+                        }
                     }
-            }
-                Spacer()
+//                    ForEach(librariumViewModel.recomended, id: \.self) { book in
+//                        Text(book)
+//                    }
+                    Text("AAAA")
+                }
             }
         }
     }

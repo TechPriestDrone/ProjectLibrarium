@@ -15,7 +15,7 @@ struct OpenLibraryResponse: Decodable {
 struct SearchResults: Decodable{
     let key: String
     let title: String
-    let author_key: [String]
+    let author_key: [String]?
     let author_name: [String]
     let id_amazon: [String]?
     let id_goodreads: [String]?
