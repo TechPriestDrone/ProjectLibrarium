@@ -12,8 +12,13 @@ struct ContentView: View {
         TabView {
             BookShelfView(librariumViewModel: LibrariumViewModel())
                 .tabItem {
-                    Text("Search")
+                    Text("Discover")
                     Image(systemName: "book")
+                }
+            SearchTabView(librariumViewModel: LibrariumViewModel())
+                .tabItem {
+                    Text("Search")
+                    Image(systemName: "doc.text.magnifyingglass")
                 }
             ReadBooksView()
                 .tabItem {

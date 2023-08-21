@@ -18,6 +18,9 @@
 		8C8D7B692A9287810026C0FD /* GoodReeadsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B682A9287810026C0FD /* GoodReeadsDataModel.swift */; };
 		8C8D7B6B2A92878E0026C0FD /* GoogleBooksDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B6A2A92878E0026C0FD /* GoogleBooksDataModel.swift */; };
 		8C8D7B6D2A928F370026C0FD /* BookOnShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */; };
+		8C8D7B6F2A93BB3C0026C0FD /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */; };
+		8C8D7B712A93C0E10026C0FD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B702A93C0E10026C0FD /* SearchService.swift */; };
+		8C8D7B732A93C2970026C0FD /* OpenLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D7B722A93C2970026C0FD /* OpenLibraryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		8C8D7B682A9287810026C0FD /* GoodReeadsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodReeadsDataModel.swift; sourceTree = "<group>"; };
 		8C8D7B6A2A92878E0026C0FD /* GoogleBooksDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksDataModel.swift; sourceTree = "<group>"; };
 		8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOnShelfView.swift; sourceTree = "<group>"; };
+		8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
+		8C8D7B702A93C0E10026C0FD /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		8C8D7B722A93C2970026C0FD /* OpenLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibraryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 				8C8D7B5F2A9285A00026C0FD /* BookShelfView.swift */,
 				8C8D7B612A9286990026C0FD /* ReadBooksView.swift */,
 				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
+				8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +105,7 @@
 		8C8D7B5D2A9285750026C0FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8C8D7B702A93C0E10026C0FD /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 				8C8D7B662A9287700026C0FD /* AmazonDataModel.swift */,
 				8C8D7B682A9287810026C0FD /* GoodReeadsDataModel.swift */,
 				8C8D7B6A2A92878E0026C0FD /* GoogleBooksDataModel.swift */,
+				8C8D7B722A93C2970026C0FD /* OpenLibraryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,10 +202,13 @@
 				8C8D7B602A9285A00026C0FD /* BookShelfView.swift in Sources */,
 				8C8D7B6D2A928F370026C0FD /* BookOnShelfView.swift in Sources */,
 				8C8D7B672A9287700026C0FD /* AmazonDataModel.swift in Sources */,
+				8C8D7B712A93C0E10026C0FD /* SearchService.swift in Sources */,
 				8C8D7B692A9287810026C0FD /* GoodReeadsDataModel.swift in Sources */,
 				8C8D7B6B2A92878E0026C0FD /* GoogleBooksDataModel.swift in Sources */,
 				8C8D7B642A92874D0026C0FD /* LibrariumViewModel.swift in Sources */,
+				8C8D7B6F2A93BB3C0026C0FD /* SearchTabView.swift in Sources */,
 				8C70F42F2A8FA0EC000177CF /* ContentView.swift in Sources */,
+				8C8D7B732A93C2970026C0FD /* OpenLibraryModel.swift in Sources */,
 				8C70F42D2A8FA0EC000177CF /* ProjectLibrariumApp.swift in Sources */,
 				8C8D7B622A9286990026C0FD /* ReadBooksView.swift in Sources */,
 			);

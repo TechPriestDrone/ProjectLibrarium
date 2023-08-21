@@ -22,17 +22,6 @@ struct BookShelfView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Button {
-                    print(librariumViewModel.userSearchQuerry)
-                } label: {
-                    ZStack{
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .frame(width: 50, height: 80)
-                        Text("Find")
-                            .searchable(text: $librariumViewModel.userSearchQuerry, prompt: "What do you want to read")
-                    }
-                }
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(librariumViewModel.recomended, id: \.self){ book in
