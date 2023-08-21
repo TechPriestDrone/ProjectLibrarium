@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-@MainActor
+
 struct SearchTabView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
     var body: some View {

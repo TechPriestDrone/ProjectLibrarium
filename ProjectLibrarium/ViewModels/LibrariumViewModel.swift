@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+@MainActor
 class LibrariumViewModel: ObservableObject{
     @Published var userSearchQuerry: String = ""
     @Published var searchResults: [SearchResults] = []
@@ -14,8 +14,9 @@ class LibrariumViewModel: ObservableObject{
     @Published var recomended: [String] = ["abc", "cbe", "UwU","abc2", "cb1e", "Uw4U","abcs", "fcbe", "aUwU","abcf", "cbew", "UwUsd","abc65", "c234be", "U3wU"]
     
     func findBookOpenLibrary(searchQuerry: String) async {
+        print("https://openlibrary.org/search.json?q=\(searchQuerry)")
         let url = URL(string: "https://openlibrary.org/search.json?q=\(searchQuerry)")!
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             if (response as? HTTPURLResponse)?.statusCode == 200 {
