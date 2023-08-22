@@ -52,6 +52,6 @@ struct BookShelfView: View {
 
 struct BookShelfView_Previews: PreviewProvider {
     static var previews: some View {
-        BookShelfView(librariumViewModel: LibrariumViewModel())
+        BookShelfView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
     }
 }

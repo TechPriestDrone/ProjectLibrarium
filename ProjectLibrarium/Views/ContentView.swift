@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            BookShelfView(librariumViewModel: LibrariumViewModel())
+            BookShelfView(librariumViewModel: LibrariumViewModel(searchType: SearchServices()))
                 .tabItem {
                     Text("Discover")
                     Image(systemName: "book")
                 }
-            SearchTabView(librariumViewModel: LibrariumViewModel())
+            SearchTabView(librariumViewModel: LibrariumViewModel(searchType: SearchServices()))
                 .tabItem {
                     Text("Search")
                     Image(systemName: "doc.text.magnifyingglass")

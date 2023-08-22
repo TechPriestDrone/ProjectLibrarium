@@ -15,9 +15,12 @@ struct SearchTabView: View {
                 VStack{
                     Button {
                         Task{
-                            await librariumViewModel.findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry)
-                            print(librariumViewModel.searchResults)
-                            print(librariumViewModel.userSearchQuerry)
+                            await librariumViewModel.findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry.replacingOccurrences(of: " ", with: "+"))
+//                            print(librariumViewModel.searchResults)
+//                            print(librariumViewModel.userSearchQuerry)
+//                            let test = librariumViewModel.searchResults.map{ $0.title.lowercased() == librariumViewModel.userSearchQuerry.lowercased() }
+//                            print(test)
+                            // trying to filter out excessive results.
                         }
                     } label: {
                         ZStack{
@@ -31,15 +34,11 @@ struct SearchTabView: View {
                     
                     Spacer()
                     ForEach(librariumViewModel.searchResults, id: \.key) { book in
-                        Text(book.title)
-                        if let rating = book.ratings_average {
-                            Text("\(rating)")
-                        }
+                        SearchResultsView(book: book)
                     }
 //                    ForEach(librariumViewModel.recomended, id: \.self) { book in
 //                        Text(book)
 //                    }
-                    Text("AAAA")
                 }
             }
         }
@@ -48,6 +47,6 @@ struct SearchTabView: View {
 
 struct SearchTabView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchTabView(librariumViewModel: LibrariumViewModel())
+        SearchTabView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
     }
 }
