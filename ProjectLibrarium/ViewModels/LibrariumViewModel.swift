@@ -36,7 +36,8 @@ class LibrariumViewModel: ObservableObject{
 //    }
     
     func findBookOpenLibrary(searchQuerry: String) async {
-        searchResults = await searchType.findBookOpenLibrary(searchQuerry: searchQuerry)
+        let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuerry: searchQuerry)
+        searchResults = searchResultsUnfiltered.filter { $0.ratings_average != nil }
     }
     
 }
