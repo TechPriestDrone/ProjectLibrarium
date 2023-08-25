@@ -9,6 +9,7 @@ import Foundation
 
 protocol Search {
     func findBookOpenLibrary(searchQuerry: String) async -> [SearchResults]
+    func openLinraryTrendingList() async -> [SearchResults]
 }
 
 class SearchServices: Search {
@@ -27,4 +28,23 @@ class SearchServices: Search {
         }
         return []
     }
+    
+    func openLinraryTrendingList() async -> [SearchResults] {
+         let url = URL(string: "https://openlibrary.org/trending/daily.json?")!
+         let request = URLRequest(url: url)
+         do {
+             let (data, response) = try await URLSession.shared.data(for: request)
+             if (response as? HTTPURLResponse)?.statusCode == 200 {
+                 let openLibraryTrendingResonse = try JSONDecoder().decode(OpenLibraryTrendingResponse.self, from: data)
+                 let slicedResponse = Array(openLibraryTrendingResonse.works.prefix(15))
+                 return slicedResponse
+     //            print(openLibraryResonse)
+             }
+         } catch {
+             print(error)
+         }
+         return []
+     }
+    
 }
+

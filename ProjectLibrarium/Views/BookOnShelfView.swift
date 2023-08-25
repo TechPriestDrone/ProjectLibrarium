@@ -14,7 +14,7 @@ struct BookOnShelfView: View {
         ZStack{
             Rectangle()
                 .foregroundColor(.white)
-                .frame(width: 60, height: 180)
+                .frame(width: 100, height: 200)
                 .border(.black, width: 3)
                 .padding(.bottom, 0)
                 .padding(.horizontal, 5)

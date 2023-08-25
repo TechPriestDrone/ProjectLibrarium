@@ -21,3 +21,7 @@ struct SearchResults: Decodable{
     let id_goodreads: [String]?
     let ratings_average: Double?
 }
+
+struct OpenLibraryTrendingResponse: Decodable {
+    let works: [SearchResults]
+}

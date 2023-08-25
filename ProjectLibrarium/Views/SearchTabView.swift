@@ -17,7 +17,7 @@ struct SearchTabView: View {
                         Task{
                             await librariumViewModel.findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry.replacingOccurrences(of: " ", with: "+"))
 //                            print(librariumViewModel.searchResults)
-//                            print(librariumViewModel.userSearchQuerry)
+                            print(librariumViewModel.userSearchQuerry)
 //                            let test = librariumViewModel.searchResults.map{ $0.title.lowercased() == librariumViewModel.userSearchQuerry.lowercased() }
 //                            print(test)
                             // trying to filter out excessive results.

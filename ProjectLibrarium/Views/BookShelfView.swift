@@ -22,30 +22,20 @@ struct BookShelfView: View {
     var body: some View {
         NavigationView{
             VStack{
+                Text("Trending Books")
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(librariumViewModel.recomended, id: \.self){ book in
-                        BookOnShelfView(bookTitle: book)
+                    ForEach(librariumViewModel.openLibrrayTrending, id: \.key){ book in
+                        BookOnShelfView(bookTitle: book.title)
                     }
-                    .border(.black)
-                    .padding(.horizontal,0)
                 }
-                .border(.black, width: 10)
-                .padding(.horizontal, 0)
-//                HStack{
-//                    Spacer()
-//                    Rectangle()
-//                        .frame(width: 10)
-//                    Spacer(minLength: 280)
-//                    Rectangle()
-//                        .frame(width: 10)
-//                    Spacer()
-//                }
-//                .padding(.vertical, 0)
+                .padding()
             }
             .padding()
             .navigationTitle(Text("LIBRARIUM"))
             .navigationBarTitleDisplayMode(.inline)
+        }.task {
+            await librariumViewModel.fetchOpenLibraryTrendingList()
         }
     }
 }
