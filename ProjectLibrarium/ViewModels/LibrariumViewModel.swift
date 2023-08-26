@@ -12,6 +12,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var userSearchQuery: String = ""
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
+    @Published var showSheetBookInspect: Bool = false
     
     init(searchType: SearchProtocol) {
         self.searchType = searchType
@@ -19,7 +20,7 @@ class LibrariumViewModel: ObservableObject{
         
     func findBookOpenLibrary(searchQuery: String) async {
         let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuery: searchQuery)
-        let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil }
+        let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased() == userSearchQuery.lowercased() }
         searchResults = searchResultsFilter2
         // should add a filter? makes it case spell error sensitive but returns more focused results.

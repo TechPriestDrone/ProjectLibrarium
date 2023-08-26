@@ -28,12 +28,18 @@ struct SearchTabView: View {
                                 .resizable()
                                 .frame(width: 50, height: 80)
                             Text("Find")
-                                .searchable(text: $librariumViewModel.userSearchQuery, prompt: "What do you want to read")
+                                .searchable(text: $librariumViewModel.userSearchQuery, prompt: "Search Book Title")
                         }
                     }
                     
                     Spacer()
                     ForEach(librariumViewModel.searchResults) { book in
+                        NavigationLink {
+                            InspectBookView(book: book)
+                        } label: {
+                            Text("\(book.title)")
+                        }
+
                         SearchResultsView(book: book)
                     }
                 }

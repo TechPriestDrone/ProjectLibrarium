@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C427FEC2A9A83E3009C0886 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 8C427FEB2A9A83E3009C0886 /* Nuke */; };
+		8C427FEE2A9A87C4009C0886 /* InspectBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C427FED2A9A87C4009C0886 /* InspectBookView.swift */; };
 		8C70F42D2A8FA0EC000177CF /* ProjectLibrariumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */; };
 		8C70F42F2A8FA0EC000177CF /* LibrariumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */; };
 		8C70F4312A8FA0ED000177CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C70F4302A8FA0ED000177CF /* Assets.xcassets */; };
@@ -26,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C427FED2A9A87C4009C0886 /* InspectBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectBookView.swift; sourceTree = "<group>"; };
 		8C70F4292A8FA0EC000177CF /* ProjectLibrarium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLibrarium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLibrariumApp.swift; sourceTree = "<group>"; };
 		8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariumMainView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C427FEC2A9A83E3009C0886 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +107,7 @@
 				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 				8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */,
 				8C8D7B742A9509740026C0FD /* SearchResultsView.swift */,
+				8C427FED2A9A87C4009C0886 /* InspectBookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +156,9 @@
 			dependencies = (
 			);
 			name = ProjectLibrarium;
+			packageProductDependencies = (
+				8C427FEB2A9A83E3009C0886 /* Nuke */,
+			);
 			productName = ProjectLibrarium;
 			productReference = 8C70F4292A8FA0EC000177CF /* ProjectLibrarium.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +187,9 @@
 				Base,
 			);
 			mainGroup = 8C70F4202A8FA0EC000177CF;
+			packageReferences = (
+				8C427FEA2A9A83E2009C0886 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 8C70F42A2A8FA0EC000177CF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,6 +222,7 @@
 				8C8D7B712A93C0E10026C0FD /* SearchService.swift in Sources */,
 				8C8D7B752A9509740026C0FD /* SearchResultsView.swift in Sources */,
 				8C8D7B692A9287810026C0FD /* GoodReeadsDataModel.swift in Sources */,
+				8C427FEE2A9A87C4009C0886 /* InspectBookView.swift in Sources */,
 				8C8D7B6B2A92878E0026C0FD /* GoogleBooksDataModel.swift in Sources */,
 				8C812AD22A9513A100EB5D86 /* MockServices.swift in Sources */,
 				8C8D7B642A92874D0026C0FD /* LibrariumViewModel.swift in Sources */,
@@ -417,6 +429,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C427FEA2A9A83E2009C0886 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C427FEB2A9A83E3009C0886 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C427FEA2A9A83E2009C0886 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8C70F4212A8FA0EC000177CF /* Project object */;
 }

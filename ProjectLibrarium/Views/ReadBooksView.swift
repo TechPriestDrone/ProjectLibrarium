@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Nuke
 
 struct ReadBooksView: View {
     var body: some View {
-        Text("READ BOOKS")
+        VStack{
+            Text("READ BOOKS")
+        }
     }
 }
 

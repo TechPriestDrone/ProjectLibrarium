@@ -16,7 +16,7 @@ struct SearchResultsView: View {
         HStack{
             Image(systemName: "star")
             if let rating = book.averageRating {
-                Text("\(rating)")
+                Text(String(rating))
             }
         }
         Divider()
@@ -25,6 +25,6 @@ struct SearchResultsView: View {
 
 struct SearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultsView(book: SearchResults(id: "asa", title: "dsds", authorId: ["asdd"], authorName: ["asdsd"], amazonId: ["ssasd"], goodreadsId: ["sdf"], averageRating: 5.0))
+        SearchResultsView(book: SearchResults(id: "asa", title: "dsds", authorId: ["asdd"], authorName: ["asdsd"], amazonId: ["ssasd"], goodreadsId: ["sdf"], averageRating: 5.0, coverId: 123))
     }
 }

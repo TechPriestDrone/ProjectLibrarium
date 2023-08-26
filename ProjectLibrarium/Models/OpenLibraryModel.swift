@@ -20,6 +20,8 @@ struct SearchResults: Codable, Identifiable {
     let amazonId: [String]?
     let goodreadsId: [String]?
     let averageRating: Double?
+    let coverId: Int?
+    let favorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case authorId = "author_key"
@@ -28,6 +30,7 @@ struct SearchResults: Codable, Identifiable {
         case goodreadsId = "id_goodreads"
         case averageRating = "ratings_average"
         case id = "key"
+        case coverId = "cover_i"
         case title
     }
 }
