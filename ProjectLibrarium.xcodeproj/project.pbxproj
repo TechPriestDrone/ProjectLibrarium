@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C70F42D2A8FA0EC000177CF /* ProjectLibrariumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */; };
-		8C70F42F2A8FA0EC000177CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42E2A8FA0EC000177CF /* ContentView.swift */; };
+		8C70F42F2A8FA0EC000177CF /* LibrariumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */; };
 		8C70F4312A8FA0ED000177CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C70F4302A8FA0ED000177CF /* Assets.xcassets */; };
 		8C70F4342A8FA0ED000177CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C70F4332A8FA0ED000177CF /* Preview Assets.xcassets */; };
 		8C812AD22A9513A100EB5D86 /* MockServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C812AD12A9513A100EB5D86 /* MockServices.swift */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		8C70F4292A8FA0EC000177CF /* ProjectLibrarium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLibrarium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLibrariumApp.swift; sourceTree = "<group>"; };
-		8C70F42E2A8FA0EC000177CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariumMainView.swift; sourceTree = "<group>"; };
 		8C70F4302A8FA0ED000177CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C70F4332A8FA0ED000177CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C812AD12A9513A100EB5D86 /* MockServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServices.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		8C8D7B5C2A9285620026C0FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C70F42E2A8FA0EC000177CF /* ContentView.swift */,
+				8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */,
 				8C8D7B5F2A9285A00026C0FD /* BookShelfView.swift */,
 				8C8D7B612A9286990026C0FD /* ReadBooksView.swift */,
 				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
@@ -215,7 +215,7 @@
 				8C812AD22A9513A100EB5D86 /* MockServices.swift in Sources */,
 				8C8D7B642A92874D0026C0FD /* LibrariumViewModel.swift in Sources */,
 				8C8D7B6F2A93BB3C0026C0FD /* SearchTabView.swift in Sources */,
-				8C70F42F2A8FA0EC000177CF /* ContentView.swift in Sources */,
+				8C70F42F2A8FA0EC000177CF /* LibrariumMainView.swift in Sources */,
 				8C8D7B732A93C2970026C0FD /* OpenLibraryModel.swift in Sources */,
 				8C70F42D2A8FA0EC000177CF /* ProjectLibrariumApp.swift in Sources */,
 				8C8D7B622A9286990026C0FD /* ReadBooksView.swift in Sources */,

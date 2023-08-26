@@ -8,23 +8,22 @@
 import Foundation
 @MainActor
 class LibrariumViewModel: ObservableObject{
-    var searchType: Search
-    @Published var userSearchQuerry: String = ""
+    var searchType: SearchProtocol
+    @Published var userSearchQuery: String = ""
     @Published var searchResults: [SearchResults] = []
-    @Published var recomended: [String] = ["abc", "cbe", "sdafgsdf","abc2", "cb1e", "aasddff","abcs", "fcbe", "dsfvf","abcf", "cbew", "UwUsd","abc65", "c234be", "U3w"]
-    @Published var openLibrrayTrending: [SearchResults] = []
+    @Published var openLibraryTrending: [SearchResults] = []
     
-    init(searchType: Search) {
+    init(searchType: SearchProtocol) {
         self.searchType = searchType
     }
         
-    func findBookOpenLibrary(searchQuerry: String) async {
-        let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuerry: searchQuerry)
+    func findBookOpenLibrary(searchQuery: String) async {
+        let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuery: searchQuery)
         searchResults = searchResultsUnfiltered.filter { $0.ratings_average != nil }
     }
     
     func fetchOpenLibraryTrendingList() async {
-        openLibrrayTrending = await searchType.openLinraryTrendingList()
+        openLibraryTrending = await searchType.openLibraryTrendingList()
     }
     
 }

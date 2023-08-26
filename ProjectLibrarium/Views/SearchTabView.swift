@@ -15,9 +15,9 @@ struct SearchTabView: View {
                 VStack{
                     Button {
                         Task{
-                            await librariumViewModel.findBookOpenLibrary(searchQuerry: librariumViewModel.userSearchQuerry.replacingOccurrences(of: " ", with: "+"))
+                            await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
 //                            print(librariumViewModel.searchResults)
-                            print(librariumViewModel.userSearchQuerry)
+//                            print(librariumViewModel.userSearchQuerry)
 //                            let test = librariumViewModel.searchResults.map{ $0.title.lowercased() == librariumViewModel.userSearchQuerry.lowercased() }
 //                            print(test)
                             // trying to filter out excessive results.
@@ -28,7 +28,7 @@ struct SearchTabView: View {
                                 .resizable()
                                 .frame(width: 50, height: 80)
                             Text("Find")
-                                .searchable(text: $librariumViewModel.userSearchQuerry, prompt: "What do you want to read")
+                                .searchable(text: $librariumViewModel.userSearchQuery, prompt: "What do you want to read")
                         }
                     }
                     
@@ -36,9 +36,6 @@ struct SearchTabView: View {
                     ForEach(librariumViewModel.searchResults, id: \.key) { book in
                         SearchResultsView(book: book)
                     }
-//                    ForEach(librariumViewModel.recomended, id: \.self) { book in
-//                        Text(book)
-//                    }
                 }
             }
         }

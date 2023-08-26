@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LibrariumMainView: View {
+    @StateObject var viewModel: LibrariumViewModel
     var body: some View {
         TabView {
-            BookShelfView(librariumViewModel: LibrariumViewModel(searchType: SearchServices()))
+            BookShelfView(librariumViewModel: viewModel)
                 .tabItem {
                     Text("Discover")
                     Image(systemName: "book")
                 }
-            SearchTabView(librariumViewModel: LibrariumViewModel(searchType: SearchServices()))
+            SearchTabView(librariumViewModel: viewModel)
                 .tabItem {
                     Text("Search")
                     Image(systemName: "doc.text.magnifyingglass")
@@ -31,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LibrariumMainView(viewModel: LibrariumViewModel(searchType: SearchServicesMock()))
     }
 }
