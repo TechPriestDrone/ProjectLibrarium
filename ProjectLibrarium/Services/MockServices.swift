@@ -9,12 +9,18 @@ import Foundation
 
 class SearchServicesMock: SearchProtocol {
     func openLibraryTrendingList() async -> [SearchResults] {
-                let mockResults: [SearchResults] = [SearchResults(key: "HELLO", title: "ABC", author_key: nil, author_name: nil, id_amazon: nil, id_goodreads: nil, ratings_average: nil), SearchResults(key: "123123", title: "Foundation", author_key: nil, author_name: nil, id_amazon: nil, id_goodreads: nil, ratings_average: nil), SearchResults(key: "123124", title: "Life Of Pi", author_key: nil, author_name: nil, id_amazon: nil, id_goodreads: nil, ratings_average: nil)]
+        let mockResults: [SearchResults] = [SearchResults(id: "HELLO", title: "ABC", authorId: nil, authorName: nil, amazonId: nil, goodreadsId: nil, averageRating: nil),
+                                            SearchResults(id: "123123", title: "Foundation", authorId: nil, authorName: nil, amazonId: nil, goodreadsId: nil, averageRating: nil),
+                                            SearchResults(id: "123124", title: "Life Of Pi", authorId: nil, authorName: nil, amazonId: nil, goodreadsId: nil, averageRating: nil)]
                 return mockResults
     }
     
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults] {
-        let mockResults: [SearchResults] = [SearchResults(key: "HELLO", title: "ABC", author_key: ["ASDF"], author_name: ["ASSSD"], id_amazon: ["asss"], id_goodreads: ["ssdsd"], ratings_average: 3.1), SearchResults(key: "123123", title: "Foundation", author_key: ["Asimov"], author_name: ["Asimov"], id_amazon: ["someID"], id_goodreads: ["someID"], ratings_average: 5.0), SearchResults(key: "123124", title: "Life Of Pi", author_key: ["Asimov"], author_name: ["Asimov"], id_amazon: ["someID"], id_goodreads: ["someID"], ratings_average: nil)]
+        let mockResults: [SearchResults] = [SearchResults(id: "HELLO", title: "ABC", authorId: ["ASDF"], authorName: ["ASSSD"], amazonId: ["asss"], goodreadsId: ["ssdsd"], averageRating: 3.1),
+                                            SearchResults(id: "123123", title: "Foundation", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 5.0),
+                                            SearchResults(id: "123124", title: "Life Of Pi", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: nil),
+                                            SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3)
+        ]
         return mockResults
     }
     

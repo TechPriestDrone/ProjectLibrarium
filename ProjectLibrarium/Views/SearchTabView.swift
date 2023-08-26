@@ -33,7 +33,7 @@ struct SearchTabView: View {
                     }
                     
                     Spacer()
-                    ForEach(librariumViewModel.searchResults, id: \.key) { book in
+                    ForEach(librariumViewModel.searchResults) { book in
                         SearchResultsView(book: book)
                     }
                 }

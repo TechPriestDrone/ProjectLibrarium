@@ -25,7 +25,7 @@ struct BookShelfView: View {
                 Text("Trending Books")
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(librariumViewModel.openLibraryTrending, id: \.key){ book in
+                    ForEach(librariumViewModel.openLibraryTrending){ book in
                         BookOnShelfView(bookTitle: book.title)
                     }
                 }

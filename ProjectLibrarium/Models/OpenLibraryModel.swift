@@ -8,20 +8,30 @@
 import Foundation
 
 
-struct OpenLibraryResponse: Decodable {
+struct OpenLibraryResponse: Codable {
     let docs: [SearchResults]
 }
 
-struct SearchResults: Decodable{
-    let key: String
+struct SearchResults: Codable, Identifiable {
+    let id: String
     let title: String
-    let author_key: [String]?
-    let author_name: [String]?
-    let id_amazon: [String]?
-    let id_goodreads: [String]?
-    let ratings_average: Double?
+    let authorId: [String]?
+    let authorName: [String]?
+    let amazonId: [String]?
+    let goodreadsId: [String]?
+    let averageRating: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case authorId = "author_key"
+        case authorName = "author_name"
+        case amazonId = "id_amazon"
+        case goodreadsId = "id_goodreads"
+        case averageRating = "ratings_average"
+        case id = "key"
+        case title
+    }
 }
 
-struct OpenLibraryTrendingResponse: Decodable {
+struct OpenLibraryTrendingResponse: Codable {
     let works: [SearchResults]
 }
