@@ -35,7 +35,7 @@ struct SearchTabView: View {
                     Spacer()
                     ForEach(librariumViewModel.searchResults) { book in
                         NavigationLink {
-                            InspectBookView(book: book)
+                            InspectBookView(librariumViewModel: librariumViewModel, book: book)
                         } label: {
                             Text("\(book.title)")
                         }

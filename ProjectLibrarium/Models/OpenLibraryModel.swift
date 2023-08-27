@@ -20,7 +20,7 @@ struct SearchResults: Codable, Identifiable {
     let amazonId: [String]?
     let goodreadsId: [String]?
     let averageRating: Double?
-    let coverId: Int?
+    var coverId: Int?
     let favorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
@@ -37,4 +37,10 @@ struct SearchResults: Codable, Identifiable {
 
 struct OpenLibraryTrendingResponse: Codable {
     let works: [SearchResults]
+}
+
+struct OpenLibrarySingleWorkResponse: Codable {
+    let title: String
+    let description: String
+    let covers: [Int]?
 }

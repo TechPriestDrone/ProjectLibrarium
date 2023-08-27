@@ -13,6 +13,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
     @Published var showSheetBookInspect: Bool = false
+    @Published var singleBookDetails: OpenLibrarySingleWorkResponse = OpenLibrarySingleWorkResponse(title: "LOADING", description: "LOADING", covers: nil)
     
     init(searchType: SearchProtocol) {
         self.searchType = searchType
@@ -30,6 +31,10 @@ class LibrariumViewModel: ObservableObject{
     
     func fetchOpenLibraryTrendingList() async {
         openLibraryTrending = await searchType.openLibraryTrendingList()
+    }
+    
+    func fetchBookDetailsFromOpenLibrary(bookId: String) async {
+        singleBookDetails = await searchType.openLibrarySingleBook(openLibraryKey: bookId)
     }
     
 }

@@ -10,6 +10,7 @@ import Foundation
 protocol SearchProtocol {
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults]
     func openLibraryTrendingList() async -> [SearchResults]
+    func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse
 }
 
 class SearchServices: SearchProtocol {
@@ -44,6 +45,21 @@ class SearchServices: SearchProtocol {
              print(error)
          }
          return []
+     }
+    
+    func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse {
+         let url = URL(string: "https://openlibrary.org/\(openLibraryKey).json?")!
+         let request = URLRequest(url: url)
+         do {
+             let (data, response) = try await URLSession.shared.data(for: request)
+             if (response as? HTTPURLResponse)?.statusCode == 200 {
+                 let openLibrarySingleBookResponse = try JSONDecoder().decode(OpenLibrarySingleWorkResponse.self, from: data)
+                 return openLibrarySingleBookResponse
+             }
+         } catch {
+             print(error)
+         }
+         return OpenLibrarySingleWorkResponse(title: "NO BOOK", description: "NO BOOK", covers: nil)
      }
     
 }

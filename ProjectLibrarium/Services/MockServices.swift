@@ -8,6 +8,10 @@
 import Foundation
 
 class SearchServicesMock: SearchProtocol {
+    func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse {
+        OpenLibrarySingleWorkResponse(title: "NO BOOK", description: "NO BOOK", covers: [6498519, 8904777, 108274, 233884, 1119236, -1, 10222599, 10482837, 3216657, 10519563, 10835922, 10835924, 10861366, 10883671])
+    }
+    
     func openLibraryTrendingList() async -> [SearchResults] {
         let mockResults: [SearchResults] = [SearchResults(id: "HELLO", title: "ABC", authorId: nil, authorName: nil, amazonId: nil, goodreadsId: nil, averageRating: nil, coverId: 7890714),
                                             SearchResults(id: "123123", title: "Foundation", authorId: nil, authorName: nil, amazonId: nil, goodreadsId: nil, averageRating: nil, coverId: 7890714),
