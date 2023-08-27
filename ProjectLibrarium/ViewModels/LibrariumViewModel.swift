@@ -35,6 +35,7 @@ class LibrariumViewModel: ObservableObject{
     
     func fetchBookDetailsFromOpenLibrary(bookId: String) async {
         singleBookDetails = await searchType.openLibrarySingleBook(openLibraryKey: bookId)
+        print(bookId)
     }
     
 }

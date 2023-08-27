@@ -22,19 +22,25 @@ struct InspectBookView: View {
                     Text("Title: \(book.title)")
                     Text("Author: \(authorName)")
                     LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg"))
-                    Text("Rating: \(String(averageRating))")
+                    HStack{
+                        Image(systemName: "star")
+                        Text(String(averageRating))
+                    }
                     Text("Summary: \(librariumViewModel.singleBookDetails.description)")
+                } else {
+                    ProgressView()
                 }
             }
         }
         .task {
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)
         }
+        // switch to on appear to not stop the loading of passed details.
     }
 }
 
 struct InspectBookView_Previews: PreviewProvider {
     static var previews: some View {
-        InspectBookView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()), book: SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Issac Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714))
+        InspectBookView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()), book: SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Issac Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.34534, coverId: 7890714))
     }
 }

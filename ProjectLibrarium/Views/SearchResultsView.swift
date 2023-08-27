@@ -12,7 +12,7 @@ struct SearchResultsView: View {
     var book: SearchResults
     
     var body: some View {
-        Text(book.title)
+//        Text(book.title)
         HStack{
             Image(systemName: "star")
             if let rating = book.averageRating {

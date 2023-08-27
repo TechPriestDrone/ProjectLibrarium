@@ -42,5 +42,11 @@ struct OpenLibraryTrendingResponse: Codable {
 struct OpenLibrarySingleWorkResponse: Codable {
     let title: String
     let description: String
+    // find a way to have also with the second result key: string, value string
     let covers: [Int]?
+}
+
+struct descriptionOfBook: Codable {
+    let key: String
+    let value: String
 }
