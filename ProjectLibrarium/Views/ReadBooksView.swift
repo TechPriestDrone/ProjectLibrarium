@@ -9,16 +9,23 @@ import SwiftUI
 import NukeUI
 
 struct ReadBooksView: View {
+    @StateObject var librariumViewModel: LibrariumViewModel
+    
     var body: some View {
-        VStack{
-            Text("READ BOOKS")
-            LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/7890714-M.jpg"))
+        ScrollView{
+            if let booksForList = librariumViewModel.readBookList.map {$0.bookInfo} {
+                BookShelfView(listOfBooks: booksForList, titleOfPage: "Book I have read")
+            }
         }
+//        VStack{
+//            Text("READ BOOKS")
+//            LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/7890714-M.jpg"))
+//        }
     }
 }
 
 struct ReadBooksView_Previews: PreviewProvider {
     static var previews: some View {
-        ReadBooksView()
+        ReadBooksView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
     }
 }

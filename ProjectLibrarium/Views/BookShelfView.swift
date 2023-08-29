@@ -2,14 +2,15 @@
 //  BookShelfView.swift
 //  ProjectLibrarium
 //
-//  Created by ios5 on 20/08/2023.
+//  Created by ios5 on 29/08/2023.
 //
 
 import SwiftUI
 
 struct BookShelfView: View {
+    let listOfBooks: [SearchResults]
+    let titleOfPage: String
     
-    @StateObject var librariumViewModel: LibrariumViewModel
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -22,26 +23,27 @@ struct BookShelfView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Text("Trending Books")
+                Text("\(titleOfPage)")
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(librariumViewModel.openLibraryTrending){ book in
+                    ForEach(listOfBooks){ book in
                         BookOnShelfView(bookTitle: book.title)
                     }
                 }
                 .padding()
             }
             .padding()
-            .navigationTitle(Text("LIBRARIUM"))
             .navigationBarTitleDisplayMode(.inline)
-        }.task {
-            await librariumViewModel.fetchOpenLibraryTrendingList()
         }
     }
 }
 
 struct BookShelfView_Previews: PreviewProvider {
     static var previews: some View {
-        BookShelfView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        BookShelfView(listOfBooks: [SearchResults(id: "HELLO", title: "ABC", authorId: ["ASDF"], authorName: ["ASSSD"], amazonId: ["asss"], goodreadsId: ["ssdsd"], averageRating: 3.1, coverId: 7890714),
+                                    SearchResults(id: "123123", title: "Foundation", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 5.0, coverId: 7890714),
+                                    SearchResults(id: "123124", title: "Life Of Pi", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: nil, coverId: 7890714),
+                                    SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714)
+], titleOfPage: "Test")
     }
 }

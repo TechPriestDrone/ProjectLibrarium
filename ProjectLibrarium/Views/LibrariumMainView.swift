@@ -11,7 +11,7 @@ struct LibrariumMainView: View {
     @StateObject var viewModel: LibrariumViewModel
     var body: some View {
         TabView {
-            BookShelfView(librariumViewModel: viewModel)
+            TrendingView(librariumViewModel: viewModel)
                 .tabItem {
                     Text("Discover")
                     Image(systemName: "book")
@@ -21,7 +21,7 @@ struct LibrariumMainView: View {
                     Text("Search")
                     Image(systemName: "doc.text.magnifyingglass")
                 }
-            ReadBooksView()
+            ReadBooksView(librariumViewModel: viewModel)
                 .tabItem {
                 Text("My Shelf")
                 Image(systemName: "books.vertical")

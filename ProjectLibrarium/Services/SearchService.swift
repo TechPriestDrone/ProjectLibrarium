@@ -59,7 +59,7 @@ class SearchServices: SearchProtocol {
          } catch {
              print(error)
          }
-         return OpenLibrarySingleWorkResponse(title: "NO BOOK", description: "NO BOOK", covers: nil)
+         return OpenLibrarySingleWorkResponse(title: "NO BOOK", description: "NO BOOK", covers: [])
      }
     
 }

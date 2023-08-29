@@ -13,7 +13,8 @@ class LibrariumViewModel: ObservableObject{
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
     @Published var showSheetBookInspect: Bool = false
-    @Published var singleBookDetails: OpenLibrarySingleWorkResponse = OpenLibrarySingleWorkResponse(title: "LOADING", description: "LOADING", covers: nil)
+    @Published var singleBookDetails: OpenLibrarySingleWorkResponse = .empty
+    @Published var readBookList: [ReadBooksModel] = []
     
     init(searchType: SearchProtocol) {
         self.searchType = searchType
@@ -38,7 +39,20 @@ class LibrariumViewModel: ObservableObject{
         print(bookId)
     }
     
+    func addtoReadBooks(bookToAdd: ReadBooksModel) {
+        readBookList.append(bookToAdd)
+        UserDefaults.standard.set(readBookList, forKey: "ReadBooks")
+    }
+    
+    func getReadBook(){
+//        return UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBook] ?? []
+        readBookList = UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBooksModel] ?? []
+    }
+    
 }
 
+struct ReadBook {
+    let title: String
+}
 
 

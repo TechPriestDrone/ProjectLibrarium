@@ -21,7 +21,7 @@ struct SearchResults: Codable, Identifiable {
     let goodreadsId: [String]?
     let averageRating: Double?
     var coverId: Int?
-    let favorite: Bool = false
+//    let favorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case authorId = "author_key"
@@ -44,9 +44,29 @@ struct OpenLibrarySingleWorkResponse: Codable {
     let description: String
     // find a way to have also with the second result key: string, value string
     let covers: [Int]?
+    
+    init(title: String, description: String, covers: [Int]) {
+        self.title = title
+        self.description = description
+        self.covers = covers
+    }
+    
+    static let empty = OpenLibrarySingleWorkResponse(title: "", description: "", covers: [])
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        covers = try container.decode([Int].self, forKey: .covers)
+        do {
+            description = try String(container.decode(String.self, forKey: .description))
+        } catch DecodingError.typeMismatch {
+            description = try container.decode(BookDescription.self, forKey: .description).value
+        } catch {
+            description = "N/A"
+        }
+    }
 }
 
-struct descriptionOfBook: Codable {
-    let key: String
+struct BookDescription: Codable {
     let value: String
 }

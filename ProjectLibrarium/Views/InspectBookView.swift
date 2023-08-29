@@ -14,23 +14,78 @@ struct InspectBookView: View {
     var i: Int = 0
     var body: some View {
         ScrollView{
-            VStack{
                 if let coverId = book.coverId,
                    let authorName = book.authorName?.first,
                    let averageRating = book.averageRating,
                    let covers = librariumViewModel.singleBookDetails.covers {
                     Text("Title: \(book.title)")
                     Text("Author: \(authorName)")
-                    LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg"))
+                    TabView {
+                        ForEach(covers, id: \.self) { cover in
+                            LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(cover)-M.jpg")) { state in
+                                if let image = state.image {
+                                    image // Displays the loaded image.
+                                } else if state.error != nil {
+                                    Text(state.error?.localizedDescription ?? "ERROR!")
+                                    Color.red // Indicates an error.
+                                } else {
+                                    ProgressView()
+                                }
+                            }
+                            .frame(width: 200, height: 300)
+                        }
+
+                    }
+//                    LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg")) { state in
+//                        if let image = state.image {
+//                            image // Displays the loaded image.
+//                        } else if state.error != nil {
+//                            Text(state.error?.localizedDescription ?? "ERROR!")
+//                            Color.red // Indicates an error.
+//                        } else {
+//                            ProgressView()
+//                        }
+//                    }
+//                    .frame(width: 200, height: 200)
+//                    .task {
+//                        for i in i ..< covers.count {
+//                            book.coverId = covers[i]
+//                            if i == covers.count - 1 {
+//                                i = 0
+//                            }
+//                        }
+//                    }
+                    .frame(height: 300)
+                    .tabViewStyle(PageTabViewStyle())
+
+                    
                     HStack{
                         Image(systemName: "star")
                         Text(String(averageRating))
                     }
                     Text("Summary: \(librariumViewModel.singleBookDetails.description)")
+                    
+                    Button {
+                        librariumViewModel.addtoReadBooks(bookToAdd: ReadBooksModel(bookInfo: book, bookDetails: librariumViewModel.singleBookDetails))
+                    } label: {
+                        Text("READ IT")
+                    }
+
+                    
+//                    MainActor{
+//                        if let coversArray = covers {
+//                            for i in i ..< covers.count {
+//                                
+//                                Task{
+//                                    Task.sleep(nanoseconds: NSEC_PER_SEC * 5)
+//                                    book.coverId = covers[i]
+//                                }
+//                            }
+//                        }
+//                    }
                 } else {
                     ProgressView()
                 }
-            }
         }
         .task {
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)

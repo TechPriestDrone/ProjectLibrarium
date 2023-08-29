@@ -13,6 +13,9 @@ struct SearchResultsView: View {
     
     var body: some View {
 //        Text(book.title)
+        if let author = book.authorName?.first {
+            Text("By: \(author)")
+        }
         HStack{
             Image(systemName: "star")
             if let rating = book.averageRating {
