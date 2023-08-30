@@ -39,11 +39,15 @@ class LibrariumViewModel: ObservableObject{
         print(bookId)
     }
     
-    func addtoReadBooks(bookToAdd: ReadBooksModel) {
-        readBookList.append(bookToAdd)
+    func saveLocaly() {
         let encoder = JSONEncoder()
         let encodedBookList = try? encoder.encode(readBookList)
         UserDefaults.standard.set(encodedBookList, forKey: "ReadBooks")
+    }
+    
+    func addtoReadBooks(bookToAdd: ReadBooksModel) {
+        readBookList.append(bookToAdd)
+        saveLocaly()
     }
     
     func getReadBook(){
@@ -55,6 +59,21 @@ class LibrariumViewModel: ObservableObject{
             }
         }
 //        readBookList = UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBooksModel] ?? []
+    }
+    
+    func addBookToFavorites(bookId: String ) {
+        if let indexOfBookInArray = readBookList.firstIndex(where: {$0.bookInfo.id == bookId}) {
+            let favoriteBook = readBookList.remove(at: indexOfBookInArray)
+            readBookList.insert(favoriteBook, at: 0)
+            saveLocaly()
+        }
+        
+        
+    }
+    
+    func removeFromReadBook(bookId: String){
+        readBookList = readBookList.filter({$0.bookInfo.id != bookId})
+        saveLocaly()
     }
     
 }
