@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReadBooksModel {
+struct ReadBooksModel: Codable {
     let bookInfo: SearchResults
     let bookDetails: OpenLibrarySingleWorkResponse
     var favorite: Bool = false

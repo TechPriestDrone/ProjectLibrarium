@@ -41,12 +41,20 @@ class LibrariumViewModel: ObservableObject{
     
     func addtoReadBooks(bookToAdd: ReadBooksModel) {
         readBookList.append(bookToAdd)
-        UserDefaults.standard.set(readBookList, forKey: "ReadBooks")
+        let encoder = JSONEncoder()
+        let encodedBookList = try? encoder.encode(readBookList)
+        UserDefaults.standard.set(encodedBookList, forKey: "ReadBooks")
     }
     
     func getReadBook(){
 //        return UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBook] ?? []
-        readBookList = UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBooksModel] ?? []
+        if let encodedBookList = UserDefaults.standard.value(forKey: "ReadBooks") as? Data {
+            let decoder = JSONDecoder()
+            if let decodedBookList = try? decoder.decode(Array.self, from: encodedBookList) as [ReadBooksModel] {
+                readBookList = decodedBookList
+            }
+        }
+//        readBookList = UserDefaults.standard.object(forKey: "ReadBooks") as? [ReadBooksModel] ?? []
     }
     
 }
