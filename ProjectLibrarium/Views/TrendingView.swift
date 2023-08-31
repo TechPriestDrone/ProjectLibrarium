@@ -32,8 +32,8 @@ struct TrendingView: View {
 //                }
 //                .padding()
 //            }
-            .padding()
-            .navigationBarTitleDisplayMode(.inline)
+//            .padding()
+//            .navigationBarTitleDisplayMode(.inline)
         }.task {
             await librariumViewModel.fetchOpenLibraryTrendingList()
             librariumViewModel.getReadBook()

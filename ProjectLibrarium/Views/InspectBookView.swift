@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NukeUI
+import Nuke
 
 struct InspectBookView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
@@ -88,6 +89,7 @@ struct InspectBookView: View {
                 }
         }
         .task {
+            Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)
         }
         // switch to on appear to not stop the loading of passed details.

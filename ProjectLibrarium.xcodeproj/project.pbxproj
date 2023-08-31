@@ -114,11 +114,11 @@
 				8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */,
 				8C8D7B5F2A9285A00026C0FD /* TrendingView.swift */,
 				8C8D7B612A9286990026C0FD /* ReadBooksView.swift */,
-				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 				8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */,
 				8C8D7B742A9509740026C0FD /* SearchResultsView.swift */,
 				8C427FED2A9A87C4009C0886 /* InspectBookView.swift */,
 				8C9617042A9E4CAD00752441 /* BookShelfView.swift */,
+				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

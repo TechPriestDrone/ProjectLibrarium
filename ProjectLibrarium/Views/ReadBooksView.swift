@@ -15,6 +15,12 @@ struct ReadBooksView: View {
         ScrollView{
             if let booksForList = librariumViewModel.readBookList.map {$0.bookInfo} {
                 BookShelfView(listOfBooks: booksForList, titleOfPage: "Book I have read")
+//                    .onTapGesture {
+//                        librariumViewModel.showSheetBookInspect = true
+//                    }
+//                    .sheet(isPresented: $librariumViewModel.showSheetBookInspect) {
+//                        Text("YAY IT WORKS \(book)")
+//                    }
             }
         }
 //        VStack{

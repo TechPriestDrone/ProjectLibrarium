@@ -23,7 +23,8 @@ class LibrariumViewModel: ObservableObject{
     func findBookOpenLibrary(searchQuery: String) async {
         let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuery: searchQuery)
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
-        let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased() == userSearchQuery.lowercased() }
+//        let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased() == userSearchQuery.lowercased() }
+        let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
         searchResults = searchResultsFilter2
         // should add a filter? makes it case spell error sensitive but returns more focused results.
         // for some reason chaining filters doesn't work on the results.
