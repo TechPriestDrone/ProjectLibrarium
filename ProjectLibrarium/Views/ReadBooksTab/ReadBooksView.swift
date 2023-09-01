@@ -12,9 +12,9 @@ struct ReadBooksView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
     
     var body: some View {
-        ScrollView{
-            if let booksForList = librariumViewModel.readBookList.map {$0.bookInfo} {
-                BookShelfView(listOfBooks: booksForList, titleOfPage: "Book I have read")
+        VStack{
+            if let booksForList = librariumViewModel.readBookList {
+                ReadBooksShelfView(librariumViewMode: librariumViewModel, listOfBooks: booksForList)
 //                    .onTapGesture {
 //                        librariumViewModel.showSheetBookInspect = true
 //                    }

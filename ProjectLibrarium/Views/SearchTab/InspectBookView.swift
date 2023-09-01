@@ -21,22 +21,23 @@ struct InspectBookView: View {
                    let covers = librariumViewModel.singleBookDetails.covers {
                     Text("Title: \(book.title)")
                     Text("Author: \(authorName)")
-                    TabView {
-                        ForEach(covers, id: \.self) { cover in
-                            LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(cover)-M.jpg")) { state in
-                                if let image = state.image {
-                                    image // Displays the loaded image.
-                                } else if state.error != nil {
-                                    Text(state.error?.localizedDescription ?? "ERROR!")
-                                    Color.red // Indicates an error.
-                                } else {
-                                    ProgressView()
-                                }
-                            }
-                            .frame(width: 200, height: 300)
-                        }
-
-                    }
+                    CoversDisplayView(coversToDisplay: covers)
+//                    TabView {
+//                        ForEach(covers, id: \.self) { cover in
+//                            LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(cover)-M.jpg")) { state in
+//                                if let image = state.image {
+//                                    image // Displays the loaded image.
+//                                } else if state.error != nil {
+//                                    Text(state.error?.localizedDescription ?? "ERROR!")
+//                                    Color.red // Indicates an error.
+//                                } else {
+//                                    ProgressView()
+//                                }
+//                            }
+//                            .frame(width: 200, height: 300)
+//                        }
+//
+//                    }
 //                    LazyImage(url: URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg")) { state in
 //                        if let image = state.image {
 //                            image // Displays the loaded image.

@@ -21,7 +21,11 @@ struct TrendingView: View {
     
     var body: some View {
         NavigationView{
-            BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Trending Books")
+            if librariumViewModel.isLoadingTrending == true {
+                Image(systemName: "heart")
+            }else {
+                BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Trending Books")
+            }
 //            VStack{
 //                Text("Trending Books")
 //                Spacer()

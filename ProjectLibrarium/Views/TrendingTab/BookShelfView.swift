@@ -27,7 +27,7 @@ struct BookShelfView: View {
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(listOfBooks){ book in
-                        BookOnShelfView(bookTitle: book.title)
+                        BookOnShelfView(bookTitle: book.title, isFavorite: nil)
                     }
                 }
                 .padding()
