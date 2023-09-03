@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import NukeUI
 
 struct ReadBooksView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
     
     var body: some View {
-        VStack{
+        ScrollView{
             if let booksForList = librariumViewModel.readBookList {
                 ReadBooksShelfView(librariumViewMode: librariumViewModel, listOfBooks: booksForList)
 //                    .onTapGesture {

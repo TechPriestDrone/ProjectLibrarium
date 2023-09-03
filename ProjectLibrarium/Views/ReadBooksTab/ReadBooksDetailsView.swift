@@ -18,8 +18,7 @@ struct ReadBooksDetailsView: View {
                 librariumViewModel.addBookToFavorites(bookId: book.bookInfo.id)
             } label: {
                 HStack{
-                    Text("Add To favorites ")
-                    Image(systemName: "rosette")
+                    Text(book.favorite ? "": "Add To favorites  \(Image(systemName: "rosette"))")
                 }
             }
 
@@ -38,7 +37,7 @@ struct ReadBooksDetailsView: View {
                 Button {
                     librariumViewModel.removeFromFavorites(bookId: book.bookInfo.id)
                 } label: {
-                    Text("REMOVE from FAVORITES ")
+                    Text(book.favorite ? "REMOVE from FAVORITES" : "")
                 }
 
             }
