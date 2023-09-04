@@ -19,7 +19,7 @@ struct ReadBooksShelfView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
+            ScrollView{
                 Text("My Library")
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
@@ -29,23 +29,6 @@ struct ReadBooksShelfView: View {
                         } label: {
                             BookOnShelfView(bookTitle: book.bookInfo.title, isFavorite: book.favorite)
                         }
-
-//                        Button {
-//                            librariumViewMode.showSheetBookInspect = true
-//                            print("clicked on \(book.bookInfo.title)")
-//                        } label: {
-//                            BookOnShelfView(bookTitle: book.bookInfo.title)
-//                                .sheet(isPresented: $librariumViewMode.showSheetBookInspect){
-//                                    ReadBooksDetailsSheetView(book: book)
-//                                }
-//                        }
-//                        BookOnShelfView(bookTitle: book.bookInfo.title)
-//                            .sheet(isPresented: $librariumViewMode.showSheetBookInspect, content: {
-//                                ReadBooksDetailsSheetView(book: book)
-//                            })
-//                            .onTapGesture {
-//                                librariumViewMode.showSheetBookInspect = true
-//                            }
                     }
                 }
                 .padding()

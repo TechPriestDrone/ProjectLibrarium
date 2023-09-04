@@ -15,27 +15,32 @@ struct LoadingSplashView: View {
             VStack{
                 ZStack{
                     VStack{
-                        Text("Fox Books\n Box")
+                        Spacer()
                         Image("LoadingFox")
                             .resizable()
                             .scaledToFit()
+                        Text("Fox Books Box")
+                            .font(Constants.appFont)
                         Spacer()
+                        Text("Powered by OpenLibrary")
+                        Divider()
                         Text("LOADING")
+                            .font(.headline)
                     }
                     .multilineTextAlignment(.center)
                 }
             }
         }
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 librariumViewModel.isLoadingMainScreen = true
             }
         }
     }
 }
 
-//struct LoadingSplasgView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoadingSplasgView()
-//    }
-//}
+struct LoadingSplashView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingSplashView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+    }
+}
