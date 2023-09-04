@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 @MainActor
 class LibrariumViewModel: ObservableObject{
     var searchType: SearchProtocol
@@ -18,6 +20,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var isLoadingTrending: Bool = false
     @Published var isLoadingSearchingBooks: Bool = false
     @Published var isLoadingMainScreen: Bool = false
+    @Published var bookSearchIsEmpty: Bool = false
     
     init(searchType: SearchProtocol) {
         self.searchType = searchType
@@ -29,6 +32,9 @@ class LibrariumViewModel: ObservableObject{
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
         searchResults = searchResultsFilter2
+        if searchResults.isEmpty == true {
+            bookSearchIsEmpty = true
+        }
         isLoadingSearchingBooks = false
     }
     
@@ -98,6 +104,7 @@ struct Constants {
     static func filterForSheet(book: ReadBooksModel, array: [ReadBooksModel]) -> ReadBooksModel? {
         return array.filter({ $0.bookInfo.id == book.bookInfo.id}).first
     }
+    static let appFont: Font = .custom("MarkerFelt-Wide", size: 20)
 }
 
 

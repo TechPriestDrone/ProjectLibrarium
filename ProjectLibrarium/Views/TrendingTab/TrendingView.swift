@@ -20,6 +20,7 @@ struct TrendingView: View {
                         .resizable()
                         .scaledToFit()
                 }
+                .font(Constants.appFont)
             } else {
                 BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Trending Books")
             }

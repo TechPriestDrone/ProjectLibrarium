@@ -34,6 +34,7 @@ struct BookShelfView: View {
                 .padding()
                 Text("Didn't find anything you like?\n Check in tomorrow")
                     .multilineTextAlignment(.center)
+                    .font(Constants.appFont)
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)

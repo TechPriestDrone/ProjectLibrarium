@@ -18,10 +18,15 @@ struct CoversDisplayView: View {
                         if let image = state.image {
                             image // Displays the loaded image.
                         } else if state.error != nil {
-                            Text(state.error?.localizedDescription ?? "ERROR!")
-                            Image("LoadingFox")
-                                .resizable()
-                                .scaledToFit()// Indicates an error.
+                            VStack{
+//                                Text(state.error?.localizedDescription ?? "ERROR!")
+                                Text("Didnt find the cover\nI will draw one")
+                                    .font(Constants.appFont)
+                                    .multilineTextAlignment(.center)
+                                Image("NoCover")
+                                    .resizable()
+                                    .scaledToFill()
+                            }
                         } else {
                             ProgressView()
                         }
@@ -35,8 +40,8 @@ struct CoversDisplayView: View {
     }
 }
 
-//struct CoversDisplayView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CoversDisplayView()
-//    }
-//}
+struct CoversDisplayView_Previews: PreviewProvider {
+    static var previews: some View {
+        CoversDisplayView(coversToDisplay: nil)
+    }
+}

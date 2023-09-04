@@ -12,20 +12,20 @@ struct SearchTabView: View {
     var body: some View {
             NavigationView{
                 if librariumViewModel.isLoadingSearchingBooks == true {
-                    Image("SearchingFox")
-                        .resizable()
-                        .scaledToFit()
+                    VStack{
+                        Text("I know I had it here somwhere")
+                        Image("SearchingFox")
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .font(Constants.appFont)
                 } else {
                     ScrollView{
                         VStack{
                             Button {
                                 Task{
+                                    librariumViewModel.bookSearchIsEmpty = false
                                     await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
-                                    //                            print(librariumViewModel.searchResults)
-                                    //                            print(librariumViewModel.userSearchQuerry)
-                                    //                            let test = librariumViewModel.searchResults.map{ $0.title.lowercased() == librariumViewModel.userSearchQuerry.lowercased() }
-                                    //                            print(test)
-                                    // trying to filter out excessive results.
                                 }
                             } label: {
                                 ZStack{
@@ -36,16 +36,25 @@ struct SearchTabView: View {
                                         .searchable(text: $librariumViewModel.userSearchQuery, prompt: "Search Book Title")
                                 }
                             }
-                            
                             Spacer()
-                            ForEach(librariumViewModel.searchResults) { book in
-                                NavigationLink {
-                                    InspectBookView(librariumViewModel: librariumViewModel, book: book)
-                                } label: {
-                                    Text("\(book.title)")
+                            if librariumViewModel.bookSearchIsEmpty == true {
+                                VStack{
+                                    Text("Something is wrong")
+                                    Image("CheckSpelling")
+                                        .resizable()
+                                        .scaledToFit()
+                                    Text("Check your spelling")
                                 }
-                                
-                                SearchResultsView(book: book)
+                                .font(Constants.appFont)
+                            } else {
+                                ForEach(librariumViewModel.searchResults) { book in
+                                    NavigationLink {
+                                        InspectBookView(librariumViewModel: librariumViewModel, book: book)
+                                    } label: {
+                                        Text("\(book.title)")
+                                    }
+                                    SearchResultsView(book: book)
+                                }
                             }
                         }
                     }
