@@ -17,6 +17,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var showSheetBookInspect: Bool = false
     @Published var isLoadingTrending: Bool = false
     @Published var isLoadingSearchingBooks: Bool = false
+    @Published var isLoadingMainScreen: Bool = false
     
     init(searchType: SearchProtocol) {
         self.searchType = searchType
@@ -33,7 +34,9 @@ class LibrariumViewModel: ObservableObject{
     
     func fetchOpenLibraryTrendingList() async {
         isLoadingTrending = true
-        openLibraryTrending = await searchType.openLibraryTrendingList()
+        if openLibraryTrending.isEmpty == true {
+            openLibraryTrending = await searchType.openLibraryTrendingList()
+        }
         isLoadingTrending = false
     }
     

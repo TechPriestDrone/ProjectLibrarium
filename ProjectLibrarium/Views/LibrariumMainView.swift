@@ -10,22 +10,26 @@ import SwiftUI
 struct LibrariumMainView: View {
     @StateObject var viewModel: LibrariumViewModel
     var body: some View {
-        TabView {
-            TrendingView(librariumViewModel: viewModel)
-                .tabItem {
-                    Text("Discover")
-                    Image(systemName: "book")
-                }
-            SearchTabView(librariumViewModel: viewModel)
-                .tabItem {
-                    Text("Search")
-                    Image(systemName: "doc.text.magnifyingglass")
-                }
-            ReadBooksView(librariumViewModel: viewModel)
-                .tabItem {
-                Text("My Shelf")
-                Image(systemName: "books.vertical")
+        if viewModel.isLoadingMainScreen {
+            TabView {
+                TrendingView(librariumViewModel: viewModel)
+                    .tabItem {
+                        Text("Discover")
+                        Image(systemName: "book")
+                    }
+                SearchTabView(librariumViewModel: viewModel)
+                    .tabItem {
+                        Text("Search")
+                        Image(systemName: "doc.text.magnifyingglass")
+                    }
+                ReadBooksView(librariumViewModel: viewModel)
+                    .tabItem {
+                        Text("My Shelf")
+                        Image(systemName: "books.vertical")
+                    }
             }
+        } else {
+            LoadingSplashView(librariumViewModel: viewModel)
         }
     }
 }

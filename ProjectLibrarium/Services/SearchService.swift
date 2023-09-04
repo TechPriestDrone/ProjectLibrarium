@@ -37,7 +37,7 @@ class SearchServices: SearchProtocol {
              let (data, response) = try await URLSession.shared.data(for: request)
              if (response as? HTTPURLResponse)?.statusCode == 200 {
                  let openLibraryTrendingResponse = try JSONDecoder().decode(OpenLibraryTrendingResponse.self, from: data)
-                 let slicedResponse = Array(openLibraryTrendingResponse.works.prefix(12))
+                 let slicedResponse = Array(openLibraryTrendingResponse.works.prefix(9))
                  return slicedResponse
      //            print(openLibraryResponse)
              }

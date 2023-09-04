@@ -15,7 +15,7 @@ struct BookShelfView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible()),
+//        GridItem(.flexible()),
 //        GridItem(.flexible()),
 
     ]
@@ -24,13 +24,16 @@ struct BookShelfView: View {
         NavigationView{
             VStack{
                 Text("\(titleOfPage)")
-                Spacer()
+//                Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(listOfBooks){ book in
                         BookOnShelfView(bookTitle: book.title, isFavorite: nil)
                     }
                 }
+                .frame(height: 600)
                 .padding()
+                Text("Didn't find anything you like?\n Check in tomorrow")
+                    .multilineTextAlignment(.center)
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)
@@ -43,7 +46,7 @@ struct BookShelfView_Previews: PreviewProvider {
         BookShelfView(listOfBooks: [SearchResults(id: "HELLO", title: "ABC", authorId: ["ASDF"], authorName: ["ASSSD"], amazonId: ["asss"], goodreadsId: ["ssdsd"], averageRating: 3.1, coverId: 7890714),
                                     SearchResults(id: "123123", title: "Foundation", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 5.0, coverId: 7890714),
                                     SearchResults(id: "123124", title: "Life Of Pi", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: nil, coverId: 7890714),
-                                    SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714)
+                                    SearchResults(id: "123125", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714), SearchResults(id: "123127", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714),SearchResults(id: "123129", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714),SearchResults(id: "1231212", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714),SearchResults(id: "1231245", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714),SearchResults(id: "1231247", title: "ABC", authorId: ["Asimov"], authorName: ["Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.3, coverId: 7890714),
 ], titleOfPage: "Test")
     }
 }

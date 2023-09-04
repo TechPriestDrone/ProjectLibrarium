@@ -33,6 +33,7 @@
 		8C96170A2AA2140800752441 /* ReadBooksShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9617092AA2140800752441 /* ReadBooksShelfView.swift */; };
 		8C96170C2AA2158000752441 /* ReadBooksDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170B2AA2158000752441 /* ReadBooksDetailsView.swift */; };
 		8C96170E2AA2424200752441 /* CoversDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170D2AA2424200752441 /* CoversDisplayView.swift */; };
+		8C9617102AA6336300752441 /* LoadingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170F2AA6336300752441 /* LoadingSplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		8C9617092AA2140800752441 /* ReadBooksShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooksShelfView.swift; sourceTree = "<group>"; };
 		8C96170B2AA2158000752441 /* ReadBooksDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooksDetailsView.swift; sourceTree = "<group>"; };
 		8C96170D2AA2424200752441 /* CoversDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversDisplayView.swift; sourceTree = "<group>"; };
+		8C96170F2AA6336300752441 /* LoadingSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +122,9 @@
 				8C9617072AA2101A00752441 /* TrendingTab */,
 				8C9617062AA20FE900752441 /* SearchTab */,
 				8C9617082AA2106900752441 /* ReadBooksTab */,
-				8C96170D2AA2424200752441 /* CoversDisplayView.swift */,
 				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 				8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */,
+				8C96170F2AA6336300752441 /* LoadingSplashView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 				8C8D7B6E2A93BB3C0026C0FD /* SearchTabView.swift */,
 				8C8D7B742A9509740026C0FD /* SearchResultsView.swift */,
 				8C427FED2A9A87C4009C0886 /* InspectBookView.swift */,
+				8C96170D2AA2424200752441 /* CoversDisplayView.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				8C8D7B752A9509740026C0FD /* SearchResultsView.swift in Sources */,
 				8C8D7B692A9287810026C0FD /* GoodReeadsDataModel.swift in Sources */,
 				8C427FEE2A9A87C4009C0886 /* InspectBookView.swift in Sources */,
+				8C9617102AA6336300752441 /* LoadingSplashView.swift in Sources */,
 				8C8D7B6B2A92878E0026C0FD /* GoogleBooksDataModel.swift in Sources */,
 				8C812AD22A9513A100EB5D86 /* MockServices.swift in Sources */,
 				8C8D7B642A92874D0026C0FD /* LibrariumViewModel.swift in Sources */,

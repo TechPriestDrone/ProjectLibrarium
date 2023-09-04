@@ -19,7 +19,9 @@ struct CoversDisplayView: View {
                             image // Displays the loaded image.
                         } else if state.error != nil {
                             Text(state.error?.localizedDescription ?? "ERROR!")
-                            Color.red // Indicates an error.
+                            Image("LoadingFox")
+                                .resizable()
+                                .scaledToFit()// Indicates an error.
                         } else {
                             ProgressView()
                         }
