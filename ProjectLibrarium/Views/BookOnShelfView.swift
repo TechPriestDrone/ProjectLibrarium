@@ -15,35 +15,12 @@ struct BookOnShelfView: View {
     
     var body: some View {
         VStack{
-//            if isFavorite == true {
-//                Image(systemName: "rosette")
-//            }
-//            ZStack{
-//                Rectangle()
-//                    .foregroundColor(.white)
-//                    .frame(width: 100, height: 200)
-//                    .border(.black, width: 3)
-//                    .padding(.bottom, 0)
-//                    .padding(.horizontal, 5)
-//                VStack{
-//                    if isFavorite == true {
-//                        Image(systemName: "rosette")
-//                    }
-//                    Text("    ")
-//                    Text("    ")
-//                    Text("    ")
-//                    Text("    ")
-//                    Text(bookTitle)
-//                        .rotationEffect(.degrees(90))
-//                }
-//            }
             ZStack{
                 Rectangle()
                     .foregroundColor(.white)
                     .frame(width: widthOfBook, height: heightOfBook)
                     .border(.black, width: 3)
-                    .padding(.bottom, 0)
-                    .padding(.horizontal, 5)
+                    .padding(.vertical, -5)
                 VStack{
                     if isFavorite == true {
                         Image(systemName: "rosette")
@@ -54,6 +31,7 @@ struct BookOnShelfView: View {
                             .frame(width: (widthOfBook - 6), height: (heightOfBook - 40))
                         Text(bookTitle)
                             .rotationEffect(.degrees(90))
+                            .font(.system(size: 15))
                     }
                 }
             }
@@ -63,6 +41,6 @@ struct BookOnShelfView: View {
 
 struct BookOnShelfView_Previews: PreviewProvider {
     static var previews: some View {
-        BookOnShelfView(bookTitle: "Foundation", isFavorite: true)
+        BookOnShelfView(bookTitle: "Control your mind and master your feelings", isFavorite: true)
     }
 }

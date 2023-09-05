@@ -14,30 +14,37 @@ struct BookShelfView: View {
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible()),
-//        GridItem(.flexible()),
-//        GridItem(.flexible()),
-
+        GridItem(.flexible())
     ]
     
     var body: some View {
         NavigationView{
             VStack{
+                Spacer()
                 Text("\(titleOfPage)")
-//                Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(listOfBooks){ book in
                         BookOnShelfView(bookTitle: book.title, isFavorite: nil)
                     }
                 }
-                .frame(height: 600)
+//                .frame(height: 510)
                 .padding()
-                Text("Didn't find anything you like?\n Check in tomorrow")
+                VStack{
+                    Text("Didn't find anything you like?")
+                    Text("Check in tomorrow")
+                }
                     .multilineTextAlignment(.center)
                     .font(Constants.appFont)
+                Spacer(minLength: 100)
+//                Spacer()
+//                Spacer()
+//                Spacer()
+//                Spacer()
+//                Spacer()
             }
-            .padding()
+            .padding(.horizontal, 50)
             .navigationBarTitleDisplayMode(.inline)
+
         }
     }
 }
