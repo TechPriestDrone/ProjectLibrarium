@@ -21,6 +21,9 @@ struct ReadBooksShelfView: View {
         NavigationView{
             ScrollView{
                 Text("My Library")
+                    .onTapGesture {
+                        print(librariumViewMode.readBookList)
+                    }
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(listOfBooks, id: \.bookInfo.id){ book in

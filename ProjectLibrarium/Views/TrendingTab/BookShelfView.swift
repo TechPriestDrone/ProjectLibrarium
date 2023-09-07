@@ -22,13 +22,17 @@ struct BookShelfView: View {
             VStack{
                 Spacer()
                 Text("\(titleOfPage)")
-                LazyVGrid(columns: columns, spacing: 10) {
+                LazyVGrid(columns: columns, spacing: 3) {
                     ForEach(listOfBooks){ book in
                         BookOnShelfView(bookTitle: book.title, isFavorite: nil)
                     }
                 }
-//                .frame(height: 510)
+//                .background(.brown)
+                .background(BackgroundBrown())
                 .padding()
+                .padding(.vertical, -4)
+                .border(.brown, width: 12)
+//                .frame(height:550)
                 VStack{
                     Text("Didn't find anything you like?")
                     Text("Check in tomorrow")
@@ -36,11 +40,6 @@ struct BookShelfView: View {
                     .multilineTextAlignment(.center)
                     .font(Constants.appFont)
                 Spacer(minLength: 100)
-//                Spacer()
-//                Spacer()
-//                Spacer()
-//                Spacer()
-//                Spacer()
             }
             .padding(.horizontal, 50)
             .navigationBarTitleDisplayMode(.inline)

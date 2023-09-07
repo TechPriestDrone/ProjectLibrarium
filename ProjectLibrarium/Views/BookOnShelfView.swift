@@ -20,7 +20,7 @@ struct BookOnShelfView: View {
                     .foregroundColor(.white)
                     .frame(width: widthOfBook, height: heightOfBook)
                     .border(.black, width: 3)
-                    .padding(.vertical, -5)
+//                    .padding(.horizontal, 0)
                 VStack{
                     if isFavorite == true {
                         Image(systemName: "rosette")

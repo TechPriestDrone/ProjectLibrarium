@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol SearchProtocol {
+protocol SearchServiceProtocol {
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults]
     func openLibraryTrendingList() async -> [SearchResults]
     func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse
 }
 
-class SearchServices: SearchProtocol {
+class SearchServices: SearchServiceProtocol {
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults] {
         let url = URL(string: "https://openlibrary.org/search.json?q=\(searchQuery)")!
         let request = URLRequest(url: url)

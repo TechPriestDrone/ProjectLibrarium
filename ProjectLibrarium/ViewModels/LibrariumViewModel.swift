@@ -10,7 +10,7 @@ import SwiftUI
 
 @MainActor
 class LibrariumViewModel: ObservableObject{
-    var searchType: SearchProtocol
+    var searchServiceProtocol: SearchServiceProtocol
     @Published var userSearchQuery: String = ""
     @Published var singleBookDetails: OpenLibrarySingleWorkResponse = .empty
     @Published var searchResults: [SearchResults] = []
@@ -22,13 +22,13 @@ class LibrariumViewModel: ObservableObject{
     @Published var isLoadingMainScreen: Bool = false
     @Published var bookSearchIsEmpty: Bool = false
     
-    init(searchType: SearchProtocol) {
-        self.searchType = searchType
+    init(searchType: SearchServiceProtocol) {
+        self.searchServiceProtocol = searchType
     }
         
     func findBookOpenLibrary(searchQuery: String) async {
         isLoadingSearchingBooks = true
-        let searchResultsUnfiltered = await searchType.findBookOpenLibrary(searchQuery: searchQuery)
+        let searchResultsUnfiltered = await searchServiceProtocol.findBookOpenLibrary(searchQuery: searchQuery)
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
         searchResults = searchResultsFilter2
@@ -41,13 +41,13 @@ class LibrariumViewModel: ObservableObject{
     func fetchOpenLibraryTrendingList() async {
         isLoadingTrending = true
         if openLibraryTrending.isEmpty == true {
-            openLibraryTrending = await searchType.openLibraryTrendingList()
+            openLibraryTrending = await searchServiceProtocol.openLibraryTrendingList()
         }
         isLoadingTrending = false
     }
     
     func fetchBookDetailsFromOpenLibrary(bookId: String) async {
-        singleBookDetails = await searchType.openLibrarySingleBook(openLibraryKey: bookId)
+        singleBookDetails = await searchServiceProtocol.openLibrarySingleBook(openLibraryKey: bookId)
         print(bookId)
     }
     

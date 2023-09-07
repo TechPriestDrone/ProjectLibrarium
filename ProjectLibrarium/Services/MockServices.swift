@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchServicesMock: SearchProtocol {
+class SearchServicesMock: SearchServiceProtocol {
     func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse {
         OpenLibrarySingleWorkResponse(title: "NO BOOK", description: "NO BOOK", covers: [6498519, 8904777, 108274, 233884, 1119236, -1, 10222599, 10482837, 3216657, 10519563, 10835922, 10835924, 10861366, 10883671])
     }
