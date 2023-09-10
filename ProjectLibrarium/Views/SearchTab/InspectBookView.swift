@@ -37,6 +37,12 @@ struct InspectBookView: View {
                     } label: {
                         Text("READ IT")
                     }
+                    .alert("ERROR Adding book", isPresented: $librariumViewModel.readBookAlreadyPresentAlert) {
+                        Button("OK", role: .cancel) {}
+                    } message: {
+                        Text("\(book.title) is already on you READ List")
+                    }
+
                 } else {
                     ProgressView()
                 }
@@ -45,7 +51,12 @@ struct InspectBookView: View {
             Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)
         }
-        // switch to on appear to not stop the loading of passed details.
+//        .alert("ERROR Adding book", isPresented: $librariumViewModel.readBookAlreadyPresentAlert) {
+//            Button("OK", role: .cancel) {}
+//        } message: {
+//            Text("\()")
+//        }
+
     }
 }
 

@@ -21,6 +21,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var isLoadingSearchingBooks: Bool = false
     @Published var isLoadingMainScreen: Bool = false
     @Published var bookSearchIsEmpty: Bool = false
+    @Published var readBookAlreadyPresentAlert: Bool = false
     
     init(searchType: SearchServiceProtocol) {
         self.searchServiceProtocol = searchType
@@ -58,8 +59,15 @@ class LibrariumViewModel: ObservableObject{
     }
     
     func addtoReadBooks(bookToAdd: ReadBooksModel) {
-        readBookList.append(bookToAdd)
-        saveLocaly()
+        guard readBookList.contains(where: { book in
+            book.bookInfo.id == bookToAdd.bookInfo.id
+        }) else {
+            readBookList.append(bookToAdd)
+            saveLocaly()
+            return
+        }
+        readBookAlreadyPresentAlert = true
+        print(readBookAlreadyPresentAlert)
     }
     
     func getReadBook(){
