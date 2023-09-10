@@ -33,7 +33,7 @@ struct SearchTabView: View {
                                         .resizable()
                                         .frame(width: 50, height: 80)
                                     Text("Find")
-                                        .searchable(text: $librariumViewModel.userSearchQuery, prompt: "Search Book Title")
+                                        .searchable(text: $librariumViewModel.userSearchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search Book Title")
                                 }
                             }
                             Spacer()
