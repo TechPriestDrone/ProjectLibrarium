@@ -22,11 +22,9 @@ struct SearchResultsView: View {
             if let rating = book.averageRating {
                 Text(String(rating))
             }
-//            Image(systemName: "books.vertical")
-//                .onTapGesture {
-//                    Constants.checkIfBookIsRead(bookToCheck: book, array: readBooks)
-//                }
-            //ask why not working
+            if let test = Constants.checkIfBookIsRead(bookToCheck: book, array: readBooks){
+                Image(systemName: test)
+            }
         }
         Divider()
     }
