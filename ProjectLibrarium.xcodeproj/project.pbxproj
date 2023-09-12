@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C0E0B352AAA206100E3A9FB /* BackgroundBrown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E0B342AAA206100E3A9FB /* BackgroundBrown.swift */; };
+		8C0E0B382AB0B60300E3A9FB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E0B372AB0B60300E3A9FB /* ButtonView.swift */; };
 		8C427FEE2A9A87C4009C0886 /* InspectBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C427FED2A9A87C4009C0886 /* InspectBookView.swift */; };
 		8C70F42D2A8FA0EC000177CF /* ProjectLibrariumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */; };
 		8C70F42F2A8FA0EC000177CF /* LibrariumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		8C0E0B342AAA206100E3A9FB /* BackgroundBrown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBrown.swift; sourceTree = "<group>"; };
+		8C0E0B372AB0B60300E3A9FB /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		8C427FED2A9A87C4009C0886 /* InspectBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectBookView.swift; sourceTree = "<group>"; };
 		8C70F4292A8FA0EC000177CF /* ProjectLibrarium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLibrarium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C70F42C2A8FA0EC000177CF /* ProjectLibrariumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLibrariumApp.swift; sourceTree = "<group>"; };
@@ -80,6 +82,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0E0B362AB0B5D500E3A9FB /* MiscViews */ = {
+			isa = PBXGroup;
+			children = (
+				8C0E0B342AAA206100E3A9FB /* BackgroundBrown.swift */,
+				8C96170F2AA6336300752441 /* LoadingSplashView.swift */,
+				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
+				8C0E0B372AB0B60300E3A9FB /* ButtonView.swift */,
+			);
+			path = MiscViews;
+			sourceTree = "<group>";
+		};
 		8C70F4202A8FA0EC000177CF = {
 			isa = PBXGroup;
 			children = (
@@ -121,13 +134,11 @@
 		8C8D7B5C2A9285620026C0FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C0E0B362AB0B5D500E3A9FB /* MiscViews */,
 				8C9617072AA2101A00752441 /* TrendingTab */,
 				8C9617062AA20FE900752441 /* SearchTab */,
 				8C9617082AA2106900752441 /* ReadBooksTab */,
-				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 				8C70F42E2A8FA0EC000177CF /* LibrariumMainView.swift */,
-				8C96170F2AA6336300752441 /* LoadingSplashView.swift */,
-				8C0E0B342AAA206100E3A9FB /* BackgroundBrown.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +287,7 @@
 				8C9617052A9E4CAD00752441 /* BookShelfView.swift in Sources */,
 				8C8D7B712A93C0E10026C0FD /* SearchService.swift in Sources */,
 				8C8D7B752A9509740026C0FD /* SearchResultsView.swift in Sources */,
+				8C0E0B382AB0B60300E3A9FB /* ButtonView.swift in Sources */,
 				8C0E0B352AAA206100E3A9FB /* BackgroundBrown.swift in Sources */,
 				8C8D7B692A9287810026C0FD /* GoodReeadsDataModel.swift in Sources */,
 				8C427FEE2A9A87C4009C0886 /* InspectBookView.swift in Sources */,

@@ -35,7 +35,7 @@ struct InspectBookView: View {
                     Button {
                         librariumViewModel.addtoReadBooks(bookToAdd: ReadBooksModel(bookInfo: book, bookDetails: librariumViewModel.singleBookDetails))
                     } label: {
-                        Text("READ IT")
+                        ButtonView(buttonText: "READ IT", buttonType: .addToRead)
                     }
                     .alert("ERROR Adding book", isPresented: $librariumViewModel.readBookAlreadyPresentAlert) {
                         Button("OK", role: .cancel) {}

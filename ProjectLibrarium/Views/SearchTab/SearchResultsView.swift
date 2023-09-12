@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchResultsView: View {
     
     var book: SearchResults
+    var readBooks: [ReadBooksModel]
     
     var body: some View {
 //        Text(book.title)
@@ -21,13 +22,18 @@ struct SearchResultsView: View {
             if let rating = book.averageRating {
                 Text(String(rating))
             }
+//            Image(systemName: "books.vertical")
+//                .onTapGesture {
+//                    Constants.checkIfBookIsRead(bookToCheck: book, array: readBooks)
+//                }
+            //ask why not working
         }
         Divider()
     }
 }
 
-struct SearchResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchResultsView(book: SearchResults(id: "asa", title: "dsds", authorId: ["asdd"], authorName: ["asdsd"], amazonId: ["ssasd"], goodreadsId: ["sdf"], averageRating: 5.0, coverId: 123))
-    }
-}
+//struct SearchResultsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchResultsView(book: SearchResults(id: "asa", title: "dsds", authorId: ["asdd"], authorName: ["asdsd"], amazonId: ["ssasd"], goodreadsId: ["sdf"], averageRating: 5.0, coverId: 123))
+//    }
+//}

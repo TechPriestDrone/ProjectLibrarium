@@ -53,7 +53,7 @@ struct SearchTabView: View {
                                     } label: {
                                         Text("\(book.title)")
                                     }
-                                    SearchResultsView(book: book)
+                                    SearchResultsView(book: book, readBooks: librariumViewModel.readBookList)
                                 }
                             }
                         }

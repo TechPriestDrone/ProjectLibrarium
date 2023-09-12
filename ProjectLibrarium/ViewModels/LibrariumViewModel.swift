@@ -112,6 +112,14 @@ struct Constants {
     static func filterForSheet(book: ReadBooksModel, array: [ReadBooksModel]) -> ReadBooksModel? {
         return array.filter({ $0.bookInfo.id == book.bookInfo.id}).first
     }
+    static func checkIfBookIsRead(bookToCheck: SearchResults, array: [ReadBooksModel]){
+        let test = array.filter({$0.bookInfo.id == bookToCheck.id})
+        if test.isEmpty == true {
+            print("IS EMPTY")
+        } else {
+            print("NOT PEMTY")
+        }
+    }
     static let appFont: Font = .custom("MarkerFelt-Wide", size: 20)
 }
 
