@@ -12,6 +12,8 @@ import SwiftUI
 class LibrariumViewModel: ObservableObject{
     var searchServiceProtocol: SearchServiceProtocol
     @Published var userSearchQuery: String = ""
+    @Published var userSearchQueryCheckup = ""
+    @Published var sameSearchCounter = 0
     @Published var singleBookDetails: OpenLibrarySingleWorkResponse = .empty
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
@@ -35,8 +37,16 @@ class LibrariumViewModel: ObservableObject{
         searchResults = searchResultsFilter2
         if searchResults.isEmpty == true {
             bookSearchIsEmpty = true
+            userSearchQueryCheckup = searchQuery
+            if userSearchQuery == userSearchQueryCheckup {
+                sameSearchCounter = sameSearchCounter + 1
+                isLoadingSearchingBooks = false
+            }
+        } else {
+            userSearchQueryCheckup = ""
+            sameSearchCounter = 0
+            isLoadingSearchingBooks = false
         }
-        isLoadingSearchingBooks = false
     }
     
     func fetchOpenLibraryTrendingList() async {
@@ -101,12 +111,11 @@ class LibrariumViewModel: ObservableObject{
         readBookList = readBookList.filter({$0.bookInfo.id != bookId})
         saveLocaly()
     }
-    
 }
 
-struct ReadBook {
-    let title: String
-}
+//struct ReadBook {
+//    let title: String
+//}
 
 struct Constants {
     

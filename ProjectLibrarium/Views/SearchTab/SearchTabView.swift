@@ -26,6 +26,7 @@ struct SearchTabView: View {
                                 Task{
                                     librariumViewModel.bookSearchIsEmpty = false
                                     await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
+                                    print(librariumViewModel.sameSearchCounter)
                                 }
                             } label: {
                                 ZStack{
@@ -37,23 +38,20 @@ struct SearchTabView: View {
                                 }
                             }
                             Spacer()
-                            if librariumViewModel.bookSearchIsEmpty == true {
-                                VStack{
-                                    Text("Something is wrong")
-                                    Image("CheckSpelling")
-                                        .resizable()
-                                        .scaledToFit()
-                                    Text("Check your spelling")
-                                }
-                                .font(Constants.appFont)
+                            if librariumViewModel.sameSearchCounter == 2 {
+                                NoSuchBookExistsView()
                             } else {
-                                ForEach(librariumViewModel.searchResults) { book in
-                                    NavigationLink {
-                                        InspectBookView(librariumViewModel: librariumViewModel, book: book)
-                                    } label: {
-                                        Text("\(book.title)")
+                                if librariumViewModel.bookSearchIsEmpty == true {
+                                    NoBooksFoundErrorView()
+                                } else {
+                                    ForEach(librariumViewModel.searchResults) { book in
+                                        NavigationLink {
+                                            InspectBookView(librariumViewModel: librariumViewModel, book: book)
+                                        } label: {
+                                            Text("\(book.title)")
+                                        }
+                                        SearchResultsView(book: book, readBooks: librariumViewModel.readBookList)
                                     }
-                                    SearchResultsView(book: book, readBooks: librariumViewModel.readBookList)
                                 }
                             }
                         }

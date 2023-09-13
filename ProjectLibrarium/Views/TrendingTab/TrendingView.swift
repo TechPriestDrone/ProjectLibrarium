@@ -29,7 +29,9 @@ struct TrendingView: View {
                             Button {
                                 librariumViewModel.showSheetBookInfo = true
                             } label: {
-                                Image(systemName: "questionmark.circle")
+                                HStack{
+                                    Image(systemName: "questionmark.circle")
+                                }
                             }
 
                         }
