@@ -38,7 +38,7 @@ struct SearchTabView: View {
                                 }
                             }
                             Spacer()
-                            if librariumViewModel.sameSearchCounter == 2 {
+                            if librariumViewModel.sameSearchCounter > 1 {
                                 NoSuchBookExistsView()
                             } else {
                                 if librariumViewModel.bookSearchIsEmpty == true {
