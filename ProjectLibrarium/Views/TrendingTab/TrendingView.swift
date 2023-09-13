@@ -16,6 +16,7 @@ struct TrendingView: View {
             if librariumViewModel.isLoadingTrending == true {
                 VStack{
                     Text("Fetching you some trending books")
+                    
                     Image("CarrierFox")
                         .resizable()
                         .scaledToFit()
@@ -23,11 +24,34 @@ struct TrendingView: View {
                 .font(Constants.appFont)
             } else {
                 BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Trending Books")
+                    .toolbar{
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button {
+                                librariumViewModel.showSheetBookInfo = true
+                            } label: {
+                                Image(systemName: "questionmark.circle")
+                            }
+
+                        }
+                    }
+                    .sheet(isPresented: $librariumViewModel.showSheetBookInfo) {
+                        InfoSheetView()
+                    }
             }
         }.task {
             await librariumViewModel.fetchOpenLibraryTrendingList()
             librariumViewModel.getReadBook()
         }
+//        .toolbar{
+//            ToolbarItem(placement: .automatic) {
+//                Button {
+//                    librariumViewModel.showSheetBookInfo.toggle()
+//                } label: {
+//                    Image(systemName: "heart")
+//                }
+//
+//            }
+//        }
     }
 }
 

@@ -36,6 +36,7 @@
 		8C96170C2AA2158000752441 /* ReadBooksDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170B2AA2158000752441 /* ReadBooksDetailsView.swift */; };
 		8C96170E2AA2424200752441 /* CoversDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170D2AA2424200752441 /* CoversDisplayView.swift */; };
 		8C9617102AA6336300752441 /* LoadingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96170F2AA6336300752441 /* LoadingSplashView.swift */; };
+		8CD634122AB20F8D007D3759 /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD634112AB20F8D007D3759 /* InfoSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		8C96170B2AA2158000752441 /* ReadBooksDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBooksDetailsView.swift; sourceTree = "<group>"; };
 		8C96170D2AA2424200752441 /* CoversDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversDisplayView.swift; sourceTree = "<group>"; };
 		8C96170F2AA6336300752441 /* LoadingSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSplashView.swift; sourceTree = "<group>"; };
+		8CD634112AB20F8D007D3759 /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				8C96170F2AA6336300752441 /* LoadingSplashView.swift */,
 				8C8D7B6C2A928F370026C0FD /* BookOnShelfView.swift */,
 				8C0E0B372AB0B60300E3A9FB /* ButtonView.swift */,
+				8CD634112AB20F8D007D3759 /* InfoSheetView.swift */,
 			);
 			path = MiscViews;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				8C8D7B602A9285A00026C0FD /* TrendingView.swift in Sources */,
 				8C8D7B6D2A928F370026C0FD /* BookOnShelfView.swift in Sources */,
+				8CD634122AB20F8D007D3759 /* InfoSheetView.swift in Sources */,
 				8C8D7B672A9287700026C0FD /* AmazonDataModel.swift in Sources */,
 				8C9617052A9E4CAD00752441 /* BookShelfView.swift in Sources */,
 				8C8D7B712A93C0E10026C0FD /* SearchService.swift in Sources */,

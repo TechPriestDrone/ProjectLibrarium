@@ -16,7 +16,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
     @Published var readBookList: [ReadBooksModel] = []
-    @Published var showSheetBookInspect: Bool = false
+    @Published var showSheetBookInfo: Bool = false
     @Published var isLoadingTrending: Bool = false
     @Published var isLoadingSearchingBooks: Bool = false
     @Published var isLoadingMainScreen: Bool = false
@@ -109,9 +109,11 @@ struct ReadBook {
 }
 
 struct Constants {
+    
     static func filterForSheet(book: ReadBooksModel, array: [ReadBooksModel]) -> ReadBooksModel? {
         return array.filter({ $0.bookInfo.id == book.bookInfo.id}).first
     }
+    
     static func checkIfBookIsRead(bookToCheck: SearchResults, array: [ReadBooksModel]) -> String?{
         let test = array.filter({$0.bookInfo.id == bookToCheck.id})
         if test.isEmpty == true {
@@ -120,6 +122,7 @@ struct Constants {
             return "books.vertical"
         }
     }
+    
     static let appFont: Font = .custom("MarkerFelt-Wide", size: 20)
 }
 
