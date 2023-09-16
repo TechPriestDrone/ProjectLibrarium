@@ -18,12 +18,21 @@ class LibrariumViewModel: ObservableObject{
     @Published var searchResults: [SearchResults] = []
     @Published var openLibraryTrending: [SearchResults] = []
     @Published var readBookList: [ReadBooksModel] = []
+    
+    @Published var selectedSearchType = "Book Title"
+    @Published var userSelectedSearchType = SearchType.bookTitle
+    
     @Published var showSheetBookInfo: Bool = false
     @Published var isLoadingTrending: Bool = false
     @Published var isLoadingSearchingBooks: Bool = false
     @Published var isLoadingMainScreen: Bool = false
     @Published var bookSearchIsEmpty: Bool = false
     @Published var readBookAlreadyPresentAlert: Bool = false
+    
+    enum SearchType: String {
+        case bookTitle = "Book Title"
+        case author = "Author"
+    }
     
     init(searchType: SearchServiceProtocol) {
         self.searchServiceProtocol = searchType
@@ -35,6 +44,25 @@ class LibrariumViewModel: ObservableObject{
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
         searchResults = searchResultsFilter2
+        if searchResults.isEmpty == true {
+            bookSearchIsEmpty = true
+            userSearchQueryCheckup = searchQuery
+            if userSearchQuery == userSearchQueryCheckup {
+                sameSearchCounter = sameSearchCounter + 1
+                isLoadingSearchingBooks = false
+            }
+        } else {
+            userSearchQueryCheckup = ""
+            sameSearchCounter = 0
+            isLoadingSearchingBooks = false
+        }
+    }
+    
+    func findAuthorOpenLibrary(searchQuery: String) async {
+        isLoadingSearchingBooks = true
+        let searchResultsUnfiltered = await searchServiceProtocol.findAuthorOpenLibrary(searchQuery: searchQuery)
+        let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
+        searchResults = searchResultsFilter1
         if searchResults.isEmpty == true {
             bookSearchIsEmpty = true
             userSearchQueryCheckup = searchQuery

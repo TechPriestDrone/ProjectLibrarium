@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchTabView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
+    var searchTypes = [LibrariumViewModel.SearchType.author.rawValue, LibrariumViewModel.SearchType.bookTitle.rawValue]
     var body: some View {
             NavigationView{
                 if librariumViewModel.isLoadingSearchingBooks == true {
@@ -22,11 +23,43 @@ struct SearchTabView: View {
                 } else {
                     ScrollView{
                         VStack{
+                            HStack{
+                                Text("Search by:")
+                                Picker("Search By", selection: $librariumViewModel.selectedSearchType){
+                                    ForEach(searchTypes, id: \.self) { searchType in
+                                        Text(String(searchType))
+                                    }
+                                }
+                                .frame(width: 120)
+                                .padding(.horizontal)
+                                .onChange(of: librariumViewModel.selectedSearchType) { search in
+                                    if String(search) == "Author" {
+                                        librariumViewModel.userSelectedSearchType = LibrariumViewModel.SearchType.author
+                                    } else {
+                                        librariumViewModel.userSelectedSearchType = LibrariumViewModel.SearchType.bookTitle
+                                    }
+                                }
+                            }
+//                            Picker(selection: $librariumViewModel.selectedSearchType) {
+//                                ForEach(searchTypes, id: \.self) { searchType in
+//                                    Text(String(searchType))
+//                                }
+//
+//                            } label: {
+//                                Text("AAAA")
+//                            }
+
                             Button {
                                 Task{
-                                    librariumViewModel.bookSearchIsEmpty = false
-                                    await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
-                                    print(librariumViewModel.sameSearchCounter)
+                                    if librariumViewModel.userSelectedSearchType == LibrariumViewModel.SearchType.bookTitle {
+                                        librariumViewModel.bookSearchIsEmpty = false
+                                        await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
+                                        print(librariumViewModel.sameSearchCounter)
+                                    } else {
+                                        librariumViewModel.bookSearchIsEmpty = false
+                                        await librariumViewModel.findAuthorOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
+                                        print(librariumViewModel.sameSearchCounter)
+                                    }
                                 }
                             } label: {
                                 ZStack{

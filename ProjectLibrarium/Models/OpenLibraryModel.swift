@@ -70,3 +70,12 @@ struct OpenLibrarySingleWorkResponse: Codable {
 struct BookDescription: Codable {
     let value: String
 }
+
+struct AuthorSearchResponse: Codable {
+    let numFound: Int
+    let docs: [Author]
+    
+    struct Author: Codable {
+        let key: String
+    }
+}

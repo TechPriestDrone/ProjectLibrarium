@@ -9,6 +9,7 @@ import Foundation
 
 protocol SearchServiceProtocol {
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults]
+    func findAuthorOpenLibrary(searchQuery: String) async -> [SearchResults]
     func openLibraryTrendingList() async -> [SearchResults]
     func openLibrarySingleBook(openLibraryKey: String) async -> OpenLibrarySingleWorkResponse
 }
@@ -16,6 +17,22 @@ protocol SearchServiceProtocol {
 class SearchServices: SearchServiceProtocol {
     func findBookOpenLibrary(searchQuery: String) async -> [SearchResults] {
         let url = URL(string: "https://openlibrary.org/search.json?q=\(searchQuery)")!
+        let request = URLRequest(url: url)
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            if (response as? HTTPURLResponse)?.statusCode == 200 {
+                let openLibraryResponse = try JSONDecoder().decode(OpenLibraryResponse.self, from: data)
+                return openLibraryResponse.docs
+    //            print(openLibraryResponse)
+            }
+        } catch {
+            print(error)
+        }
+        return []
+    }
+    
+    func findAuthorOpenLibrary(searchQuery: String) async -> [SearchResults] {
+        let url = URL(string: "https://openlibrary.org/search.json?author=\(searchQuery)")!
         let request = URLRequest(url: url)
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
