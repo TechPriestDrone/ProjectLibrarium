@@ -44,6 +44,9 @@ class LibrariumViewModel: ObservableObject{
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
         searchResults = searchResultsFilter2
+        if searchResultsFilter2.isEmpty{
+            searchResults = searchResultsFilter1
+        }
         if searchResults.isEmpty == true {
             bookSearchIsEmpty = true
             userSearchQueryCheckup = searchQuery

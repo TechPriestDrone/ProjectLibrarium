@@ -53,7 +53,7 @@ struct SearchTabView: View {
                                 Task{
                                     if librariumViewModel.userSelectedSearchType == LibrariumViewModel.SearchType.bookTitle {
                                         librariumViewModel.bookSearchIsEmpty = false
-                                        await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+"))
+                                        await librariumViewModel.findBookOpenLibrary(searchQuery: librariumViewModel.userSearchQuery.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "’", with: ""))
                                         print(librariumViewModel.sameSearchCounter)
                                     } else {
                                         librariumViewModel.bookSearchIsEmpty = false
@@ -61,6 +61,7 @@ struct SearchTabView: View {
                                         print(librariumViewModel.sameSearchCounter)
                                     }
                                 }
+                                // make a func that takes 2 parameters querry and search type instead of this if
                             } label: {
                                 ZStack{
                                     Image(systemName: "bookmark")
