@@ -39,22 +39,28 @@ struct ButtonView: View {
                         .cornerRadius(cornerRadius)
                 }
                 .overlay {
-                    HStack{
-                        Text("\(buttonText)")
-                            .font(Constants.appFont)
-                            .padding()
-                            .foregroundColor(.white)
-                        
                         if buttonType == .remover {
-                            Image(systemName: buttonType.rawValue)
-                                .resizable()
-                                .opacity(0.5)
-                                .frame(width: widthOfButton * 0.3, height: heightOfButton * 0.04)
-                            Spacer(minLength: widthOfButton * 0.1 )
+                            ZStack{
+                                Text("\(buttonText)")
+                                    .font(Constants.appFont)
+                                    .padding()
+                                    .foregroundColor(.white)
+                                Image(systemName: buttonType.rawValue)
+                                    .resizable()
+                                    .opacity(0.5)
+                                    .frame(width: widthOfButton * 0.3, height: heightOfButton * 0.04)
+                                Spacer(minLength: widthOfButton * 0.1 )
+                            }
                         } else {
-                            Image(systemName: buttonType.rawValue)
+                            HStack{
+                                Text("\(buttonText)")
+                                    .font(Constants.appFont)
+                                    .padding()
+                                    .foregroundColor(.white)
+
+                                Image(systemName: buttonType.rawValue)
+                            }
                         }
-                    }
                 }
                 .padding()
         }
@@ -63,6 +69,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(buttonText: "FAVORITE", buttonType: .favorite)
+        ButtonView(buttonText: "FAVORITE", buttonType: .remover)
     }
 }

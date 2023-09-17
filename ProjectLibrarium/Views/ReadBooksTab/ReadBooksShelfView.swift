@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReadBooksShelfView: View {
-    @StateObject var librariumViewMode: LibrariumViewModel
+    @StateObject var librariumViewModel: LibrariumViewModel
     let listOfBooks: [ReadBooksModel]
     
     let columns = [
@@ -20,15 +20,31 @@ struct ReadBooksShelfView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                Text("My Library")
+                Button {
+                    librariumViewModel.readBookList.sort { $0.bookInfo.title < $1.bookInfo.title }
+                } label: {
+                    Text("SORT BY NAME")
+                }
+                Button {
+                    librariumViewModel.readBookList.sort { $0.bookInfo.authorId?.first ?? "A" < $1.bookInfo.authorId?.first ?? "A" }
+                } label: {
+                    Text("SORT BY Author")
+                }
+                Button {
+                    librariumViewModel.readBookList.sort { $0.favorite && !$1.favorite}
+                } label: {
+                    Text("SORT BY FAVORITE")
+                }
+
+                Text("My Library has \(String(librariumViewModel.readBookList.count)) books")
                     .onTapGesture {
-                        print(librariumViewMode.readBookList)
+                        print(librariumViewModel.readBookList)
                     }
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(listOfBooks, id: \.bookInfo.id){ book in
                         NavigationLink {
-                            ReadBooksDetailsView(librariumViewModel: librariumViewMode, book: book)
+                            ReadBooksDetailsView(librariumViewModel: librariumViewModel, book: book)
                         } label: {
                             BookOnShelfView(bookTitle: book.bookInfo.title, isFavorite: book.favorite)
                         }

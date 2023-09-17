@@ -13,7 +13,7 @@ struct ReadBooksView: View {
     var body: some View {
         VStack{
             if let booksForList = librariumViewModel.readBookList {
-                ReadBooksShelfView(librariumViewMode: librariumViewModel, listOfBooks: booksForList)
+                ReadBooksShelfView(librariumViewModel: librariumViewModel, listOfBooks: booksForList)
             }
         }
     }
