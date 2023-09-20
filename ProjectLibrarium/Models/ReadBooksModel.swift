@@ -13,3 +13,13 @@ struct ReadBooksModel: Codable {
     var favorite: Bool = false
     var userReview: String?
 }
+
+struct SortedByAuthort {
+    let author: String
+    var works: [ReadBooksModel]
+}
+
+struct SortedByAuthort2 {
+    let author: [String]
+    var works: [SearchResults]
+}

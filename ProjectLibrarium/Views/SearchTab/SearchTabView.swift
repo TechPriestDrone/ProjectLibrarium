@@ -40,15 +40,6 @@ struct SearchTabView: View {
                                     }
                                 }
                             }
-//                            Picker(selection: $librariumViewModel.selectedSearchType) {
-//                                ForEach(searchTypes, id: \.self) { searchType in
-//                                    Text(String(searchType))
-//                                }
-//
-//                            } label: {
-//                                Text("AAAA")
-//                            }
-
                             Button {
                                 Task{
                                     if librariumViewModel.userSelectedSearchType == LibrariumViewModel.SearchType.bookTitle {
