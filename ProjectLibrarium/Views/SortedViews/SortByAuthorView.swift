@@ -12,13 +12,12 @@ struct SortByAuthorView: View {
     var listOfBooks: [ReadBooksModel]
     
     var body: some View {
-        VStack{
-            Text("Sorted By Author")
-                .task {
-                    librariumViewModel.sortedByAuthorBookList = librariumViewModel.sortBooksByAuthor(passedArray: listOfBooks)
-                    print(librariumViewModel.sortedByAuthorBookList)
-                    librariumViewModel.sortedByAuthorBookList.sort {$0.author < $1.author}
-                }
+//            Text("Sorted By Author")
+//                .task {
+//                    librariumViewModel.sortedByAuthorBookList = librariumViewModel.sortBooksByAuthor(passedArray: listOfBooks)
+//                    print(librariumViewModel.sortedByAuthorBookList)
+//                    librariumViewModel.sortedByAuthorBookList.sort {$0.author < $1.author}
+//                }
             List(librariumViewModel.sortedByAuthorBookList, id: \.author) { book in
                 Section{
                     ForEach(book.works, id: \.bookInfo.id) { result in
@@ -29,7 +28,6 @@ struct SortByAuthorView: View {
                 }
             }
             .listStyle(.sidebar)
-        }
         
     }
 }

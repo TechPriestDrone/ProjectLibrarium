@@ -20,7 +20,7 @@ struct ReadBooksShelfView: View {
     
     var body: some View {
         NavigationView{
-            ScrollView{
+            VStack{
 //                Button {
 //                    librariumViewModel.readBookList.sort { $0.bookInfo.title < $1.bookInfo.title }
 //                } label: {
@@ -45,7 +45,7 @@ struct ReadBooksShelfView: View {
                 switch librariumViewModel.sortBy {
                 case .favorites : SortedView(librariumViewModel: librariumViewModel, listOfBooks: listOfBooks)
                 case .bookTitle: SortedView(librariumViewModel: librariumViewModel, listOfBooks: listOfBooks)
-                case .authorName: SortByAuthorView(librariumViewModel: librariumViewModel, listOfBooks: listOfBooks)
+                case .authorName: SortByAuthorView(librariumViewModel: librariumViewModel, listOfBooks: librariumViewModel.readBookList)
                 }
 //                LazyVGrid(columns: columns, spacing: 10) {
 //                    ForEach(listOfBooks, id: \.bookInfo.id){ book in
@@ -69,8 +69,7 @@ struct ReadBooksShelfView: View {
                         }
                         Button("Author Name") {
                             librariumViewModel.sortBy = .authorName
-//                            librariumViewModel.sortedByAuthorBookList = librariumViewModel.sortBooksByAuthor(passedArray: listOfBooks)
-//                            print(librariumViewModel.sortedByAuthorBookList.count)
+                            print(librariumViewModel.sortedByAuthorBookList.count)
                         }
                         Button("Favorites") {
                             librariumViewModel.sortBy = .favorites
