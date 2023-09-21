@@ -88,6 +88,6 @@ struct SearchTabView: View {
 
 struct SearchTabView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchTabView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        SearchTabView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }

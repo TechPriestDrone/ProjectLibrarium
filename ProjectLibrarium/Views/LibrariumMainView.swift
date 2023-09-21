@@ -36,6 +36,6 @@ struct LibrariumMainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LibrariumMainView(viewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        LibrariumMainView(viewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }

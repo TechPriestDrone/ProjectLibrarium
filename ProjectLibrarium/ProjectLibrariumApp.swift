@@ -11,7 +11,7 @@ import SwiftUI
 struct ProjectLibrariumApp: App {
     var body: some Scene {
         WindowGroup {
-            LibrariumMainView(viewModel: LibrariumViewModel(searchType: SearchServices()))
+            LibrariumMainView(viewModel: LibrariumViewModel(searchService: SearchServices()))
         }
     }
 }

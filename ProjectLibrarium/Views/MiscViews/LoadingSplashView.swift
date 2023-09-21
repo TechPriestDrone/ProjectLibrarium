@@ -41,6 +41,6 @@ struct LoadingSplashView: View {
 
 struct LoadingSplashView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingSplashView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        LoadingSplashView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }

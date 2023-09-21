@@ -21,6 +21,6 @@ struct ReadBooksView: View {
 
 struct ReadBooksView_Previews: PreviewProvider {
     static var previews: some View {
-        ReadBooksView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        ReadBooksView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }

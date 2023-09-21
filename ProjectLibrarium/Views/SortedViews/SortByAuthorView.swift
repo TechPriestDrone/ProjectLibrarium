@@ -27,13 +27,13 @@ struct SortByAuthorView: View {
                     Text(book.author)
                 }
             }
-            .listStyle(.sidebar)
+            .listStyle(SidebarListStyle())
         
     }
 }
 
-struct SwiftUIView2_Previews: PreviewProvider {
-    static var previews: some View {
-        SortByAuthorView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()), listOfBooks:LibrariumViewModel(searchType: SearchServicesMock()).readBookList)
-    }
-}
+//struct SwiftUIView2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SortByAuthorView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()), listOfBooks:LibrariumViewModel(searchType: SearchServicesMock()).readBookList)
+//    }
+//}

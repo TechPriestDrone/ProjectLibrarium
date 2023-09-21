@@ -59,6 +59,6 @@ struct TrendingView: View {
 
 struct TrendingView_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingView(librariumViewModel: LibrariumViewModel(searchType: SearchServicesMock()))
+        TrendingView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }

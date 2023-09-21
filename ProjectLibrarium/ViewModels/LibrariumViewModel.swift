@@ -44,8 +44,8 @@ class LibrariumViewModel: ObservableObject{
         case favorites
     }
     
-    init(searchType: SearchServiceProtocol) {
-        self.searchServiceProtocol = searchType
+    init(searchService: SearchServiceProtocol) {
+        self.searchServiceProtocol = searchService
     }
         
     func findBookOpenLibrary(searchQuery: String) async {
