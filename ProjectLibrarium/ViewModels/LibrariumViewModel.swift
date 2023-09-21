@@ -155,21 +155,6 @@ class LibrariumViewModel: ObservableObject{
         saveLocaly()
     }
     
-//    func sortBooksByAuthor(passedArray: [ReadBooksModel]) -> [SortedByAuthort] {
-//        var sortedArrayByAuthor: [SortedByAuthort] = []
-//        for author in passedArray {
-//            if passedArray.filter({$0.bookInfo.authorName == author.bookInfo.authorName}).first != nil {
-//                if let index12 = sortedArrayByAuthor.firstIndex(where: {$0.author == author.bookInfo.authorName}){
-//                    sortedArrayByAuthor[index12].works.append(author)
-//            } else {
-//                sortedArrayByAuthor.append(SortedByAuthort(author: author.bookInfo.authorName!, works: [author]))
-//                }
-//            }
-//        }
-////        sortedArrayByAuthor.sort {$0.author.first ?? "ZZZ" < $1.author.first ?? "ZZZZ"}
-//        print(sortedArrayByAuthor.count)
-//        return sortedArrayByAuthor
-//    }
     func sortBooksByAuthor(passedArray: [ReadBooksModel]) -> [SortedByAuthort] {
         var sortedArrayByAuthor: [SortedByAuthort] = []
         for author in passedArray {
@@ -203,22 +188,6 @@ struct Constants {
             return "books.vertical"
         }
     }
-    
-//    static func sortBooksByAuthor(passedArray: [ReadBooksModel]) -> [SortedByAuthort] {
-//        var sortedArrayByAuthor: [SortedByAuthort] = []
-//        for author in passedArray {
-//            if passedArray.filter({$0.bookInfo.authorName == author.bookInfo.authorName}).first != nil {
-//                if let index12 = sortedArrayByAuthor.firstIndex(where: {$0.author == author.bookInfo.authorName}){
-//                    sortedArrayByAuthor[index12].works.append(author)
-//            } else {
-//                sortedArrayByAuthor.append(SortedByAuthort(author: author.bookInfo.authorName!, works: [author]))
-//                }
-//            }
-//            sortedArrayByAuthor.sort {$0.author.first ?? "ZZZ" < $1.author.first ?? "ZZZZ"}
-//        }
-//        return sortedArrayByAuthor
-//    }
-    
     static let appFont: Font = .custom("MarkerFelt-Wide", size: 20)
 }
 
