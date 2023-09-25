@@ -53,14 +53,16 @@ class LibrariumViewModel: ObservableObject{
         let searchResultsUnfiltered = await searchServiceProtocol.findBookOpenLibrary(searchQuery: searchQuery)
         let searchResultsFilter1 = searchResultsUnfiltered.filter { $0.averageRating != nil && $0.coverId != nil }
         let searchResultsFilter2 = searchResultsFilter1.filter { $0.title.lowercased().contains(userSearchQuery.lowercased())}
-        searchResults = searchResultsFilter2
         if searchResultsFilter2.isEmpty{
             searchResults = searchResultsFilter1
+        } else {
+            searchResults = searchResultsFilter2
         }
         if searchResults.isEmpty == true {
             bookSearchIsEmpty = true
+            let mutatedUserSearchQuarry = userSearchQuery.replacingOccurrences(of: " ", with: "+").replacingOccurrences(of: "’", with: "")
             userSearchQueryCheckup = searchQuery
-            if userSearchQuery == userSearchQueryCheckup {
+            if mutatedUserSearchQuarry == userSearchQueryCheckup {
                 sameSearchCounter = sameSearchCounter + 1
                 isLoadingSearchingBooks = false
             }
@@ -69,6 +71,8 @@ class LibrariumViewModel: ObservableObject{
             sameSearchCounter = 0
             isLoadingSearchingBooks = false
         }
+        isLoadingSearchingBooks = false
+        print("Search Ended")
     }
     
     func findAuthorOpenLibrary(searchQuery: String) async {
@@ -88,6 +92,7 @@ class LibrariumViewModel: ObservableObject{
             sameSearchCounter = 0
             isLoadingSearchingBooks = false
         }
+        isLoadingSearchingBooks = false
     }
     
     func fetchOpenLibraryTrendingList() async {

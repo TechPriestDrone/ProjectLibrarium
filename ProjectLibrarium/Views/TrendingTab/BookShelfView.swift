@@ -43,6 +43,9 @@ struct BookShelfView: View {
             }
             .padding(.horizontal, 50)
             .navigationBarTitleDisplayMode(.inline)
+            .background {
+                Color("PageColor")
+            }
 
         }
     }

@@ -31,6 +31,9 @@ struct SortedView: View {
             }
         }
         .padding()
+        .background {
+            Color("PageColor")
+        }
     }
 }
 

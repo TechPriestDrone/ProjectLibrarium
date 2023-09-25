@@ -77,9 +77,13 @@ struct SearchTabView: View {
                                         }
                                         SearchResultsView(book: book, readBooks: librariumViewModel.readBookList)
                                     }
+                                    }
                                 }
                             }
                         }
+                    .frame(width: 350)
+                    .background {
+                        Color("PageColor")
                     }
                 }
             }

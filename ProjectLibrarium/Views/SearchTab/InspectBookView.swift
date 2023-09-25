@@ -47,6 +47,9 @@ struct InspectBookView: View {
                     ProgressView()
                 }
         }
+        .background {
+            Color("PageColor")
+        }
         .task {
             Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)
