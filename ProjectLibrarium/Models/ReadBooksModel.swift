@@ -17,9 +17,11 @@ struct ReadBooksModel: Codable {
 struct SortedByAuthort {
     let author: String
     var works: [ReadBooksModel]
+    var collapseBar: Bool = false
 }
 
 struct SortedByAuthort2 {
     let author: [String]
     var works: [SearchResults]
+    var collapseBar: Bool = false
 }

@@ -20,14 +20,39 @@ struct SortByAuthorView: View {
 //                }
             List(librariumViewModel.sortedByAuthorBookList, id: \.author) { book in
                 Section{
-                    ForEach(book.works, id: \.bookInfo.id) { result in
-                        Text(result.bookInfo.title)
+                    if book.collapseBar{
+                        ForEach(book.works, id: \.bookInfo.id) { result in
+                            NavigationLink {
+                                ReadBooksDetailsView(librariumViewModel: librariumViewModel, book: result)
+                            } label: {
+                                Text(result.bookInfo.title).font(.system(size: 15))
+                                if result.favorite {
+                                    Image(systemName: "rosette")
+                                }
+//                                BookOnShelfView(bookTitle: result.bookInfo.title, isFavorite: result.favorite)
+                            }
+                    }
                     }
                 } header: {
-                    Text(book.author)
+//                    Text(book.author)
+                    
+                        HStack{
+                            Text(book.author).font(.system(size: 25))
+                            Spacer()
+                            Image(systemName: book.collapseBar ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
+                                .foregroundColor(.blue)
+                        }
+                        .foregroundColor(.black)
+                        .onTapGesture {
+                            let indexMark = librariumViewModel.sortedByAuthorBookList.firstIndex(where: {$0.author == book.author})
+                            librariumViewModel.sortedByAuthorBookList[indexMark!].collapseBar.toggle()
+                            }
+                    
                 }
             }
-            .listStyle(SidebarListStyle())
+            .listStyle(PlainListStyle())
+            .listStyle(.insetGrouped)
+//            .listStyle(SidebarListStyle())
         
     }
 }
