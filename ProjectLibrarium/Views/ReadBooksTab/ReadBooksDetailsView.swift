@@ -45,6 +45,9 @@ struct ReadBooksDetailsView: View {
             }
 
         }
+        .background {
+            Color("PageColor")
+        }
         .padding()
     }
 }

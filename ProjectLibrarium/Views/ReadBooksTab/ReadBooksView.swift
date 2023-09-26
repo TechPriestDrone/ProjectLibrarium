@@ -12,9 +12,9 @@ struct ReadBooksView: View {
     
     var body: some View {
         VStack{
-            if let booksForList = librariumViewModel.readBookList {
+            let booksForList = librariumViewModel.readBookList
                 ReadBooksShelfView(librariumViewModel: librariumViewModel, listOfBooks: booksForList, sortBy: .favorites)
-            }
+            
         }
         .background {
             Color("PageColor")
