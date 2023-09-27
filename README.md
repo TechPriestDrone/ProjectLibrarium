@@ -21,7 +21,7 @@ App Features:
 The App is powered by OpenLibrary.org API calls.
 
 Project uses:
-MVVM
-UserDefaults
-Nuke image management packets
+MVVM,
+UserDefaults,
+Nuke image management packets,
 AI generated art
