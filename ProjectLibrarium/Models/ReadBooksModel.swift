@@ -17,11 +17,17 @@ struct ReadBooksModel: Codable {
 struct SortedByAuthort {
     let author: String
     var works: [ReadBooksModel]
-    var collapseBar: Bool = false
+    var nameForSort: String {
+        var nameComponents = self.author.description.components(separatedBy: " ")
+        let firstName = nameComponents.removeFirst()
+        let lastName = nameComponents.joined(separator: " ")
+        let nameToSort = "\(lastName) \(firstName)"
+        return nameToSort
+        
+    }
 }
 
 struct SortedByAuthort2 {
     let author: [String]
     var works: [SearchResults]
-    var collapseBar: Bool = false
 }

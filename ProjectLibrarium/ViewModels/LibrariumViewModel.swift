@@ -112,6 +112,8 @@ class LibrariumViewModel: ObservableObject{
         let encoder = JSONEncoder()
         let encodedBookList = try? encoder.encode(readBookList)
         UserDefaults.standard.set(encodedBookList, forKey: "ReadBooks")
+        sortedByAuthorBookList = sortBooksByAuthor(passedArray: readBookList)
+        sortedByAuthorBookList.sort{$0.nameForSort < $1.nameForSort}
     }
     
     func addtoReadBooks(bookToAdd: ReadBooksModel) {
@@ -132,7 +134,7 @@ class LibrariumViewModel: ObservableObject{
             if let decodedBookList = try? decoder.decode(Array.self, from: encodedBookList) as [ReadBooksModel] {
                 readBookList = decodedBookList
                 sortedByAuthorBookList = sortBooksByAuthor(passedArray: readBookList)
-                sortedByAuthorBookList.sort{$0.author < $1.author}
+                sortedByAuthorBookList.sort{$0.nameForSort < $1.nameForSort}
             }
         }
     }
