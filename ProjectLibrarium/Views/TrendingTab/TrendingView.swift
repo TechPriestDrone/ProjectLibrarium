@@ -44,16 +44,6 @@ struct TrendingView: View {
             await librariumViewModel.fetchOpenLibraryTrendingList()
             librariumViewModel.getReadBook()
         }
-//        .toolbar{
-//            ToolbarItem(placement: .automatic) {
-//                Button {
-//                    librariumViewModel.showSheetBookInfo.toggle()
-//                } label: {
-//                    Image(systemName: "heart")
-//                }
-//
-//            }
-//        }
     }
 }
 

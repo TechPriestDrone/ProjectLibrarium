@@ -45,6 +45,7 @@ struct BookShelfView: View {
             .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color("PageColor")
+                    .ignoresSafeArea()
             }
 
         }

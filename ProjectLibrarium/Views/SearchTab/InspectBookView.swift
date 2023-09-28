@@ -15,7 +15,7 @@ struct InspectBookView: View {
     var i: Int = 0
     var body: some View {
         ScrollView{
-                if let coverId = book.coverId,
+                if let _ = book.coverId,
                    let authorName = book.authorName?.first,
                    let averageRating = book.averageRating,
                    let covers = librariumViewModel.singleBookDetails.covers {
@@ -49,6 +49,7 @@ struct InspectBookView: View {
         }
         .background {
             Color("PageColor")
+                .ignoresSafeArea()
         }
         .task {
             Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()

@@ -16,9 +16,6 @@ struct ReadBooksView: View {
                 ReadBooksShelfView(librariumViewModel: librariumViewModel, listOfBooks: booksForList, sortBy: .favorites)
             
         }
-        .background {
-            Color("PageColor")
-        }
     }
 }
 

@@ -47,13 +47,14 @@ struct ReadBooksDetailsView: View {
         }
         .background {
             Color("PageColor")
+                .ignoresSafeArea()
+            
         }
-        .padding()
     }
 }
 
-//struct ReadBooksDetailsSheetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReadBooksDetailsSheetView()
-//    }
-//}
+struct ReadBooksDetailsSheetView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReadBooksDetailsView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()), book: ReadBooksModel(bookInfo: SearchResults(id: "122", title: "HELLO", authorId: ["ASSISOO"], authorName: ["ALUCARD"], amazonId: nil, goodreadsId: nil, averageRating: 4.0), bookDetails: OpenLibrarySingleWorkResponse(title: "HELLO", description: "very gud book i recomend", covers: [123])))
+    }
+}

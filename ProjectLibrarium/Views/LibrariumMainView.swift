@@ -28,6 +28,11 @@ struct LibrariumMainView: View {
                         Image(systemName: "books.vertical")
                     }
             }
+            .background {
+                Color("PageColor")
+                    .ignoresSafeArea()
+                
+            }
         } else {
             LoadingSplashView(librariumViewModel: viewModel)
         }

@@ -21,22 +21,6 @@ struct ReadBooksShelfView: View {
     var body: some View {
         NavigationView{
             VStack{
-//                Button {
-//                    librariumViewModel.readBookList.sort { $0.bookInfo.title < $1.bookInfo.title }
-//                } label: {
-//                    Text("SORT BY NAME")
-//                }
-//                Button {
-//                    librariumViewModel.readBookList.sort { $0.bookInfo.authorId?.first ?? "A" < $1.bookInfo.authorId?.first ?? "A" }
-//                } label: {
-//                    Text("SORT BY Author")
-//                }
-//                Button {
-//                    librariumViewModel.readBookList.sort { $0.favorite && !$1.favorite}
-//                } label: {
-//                    Text("SORT BY FAVORITE")
-//                }
-
                 Text("My Library has \(String(librariumViewModel.readBookList.count)) books")
                     .onTapGesture {
                         print(librariumViewModel.readBookList)
@@ -58,7 +42,7 @@ struct ReadBooksShelfView: View {
 //                }
 //                .padding()
             }
-            .padding()
+//            .padding()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -82,6 +66,10 @@ struct ReadBooksShelfView: View {
                     )
                  }
              }
+            .background {
+                Color("PageColor")
+                    .ignoresSafeArea()
+            }
         }
     }
 }
