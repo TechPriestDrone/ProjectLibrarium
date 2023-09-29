@@ -33,7 +33,6 @@ struct TrendingView: View {
                                     Image(systemName: "questionmark.circle")
                                 }
                             }
-
                         }
                     }
                     .sheet(isPresented: $librariumViewModel.showSheetBookInfo) {

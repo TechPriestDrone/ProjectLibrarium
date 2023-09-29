@@ -31,18 +31,7 @@ struct ReadBooksShelfView: View {
                 case .bookTitle: SortedView(librariumViewModel: librariumViewModel, listOfBooks: listOfBooks)
                 case .authorName: SortByAuthorView(librariumViewModel: librariumViewModel, listOfBooks: librariumViewModel.readBookList)
                 }
-//                LazyVGrid(columns: columns, spacing: 10) {
-//                    ForEach(listOfBooks, id: \.bookInfo.id){ book in
-//                        NavigationLink {
-//                            ReadBooksDetailsView(librariumViewModel: librariumViewModel, book: book)
-//                        } label: {
-//                            BookOnShelfView(bookTitle: book.bookInfo.title, isFavorite: book.favorite)
-//                        }
-//                    }
-//                }
-//                .padding()
             }
-//            .padding()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

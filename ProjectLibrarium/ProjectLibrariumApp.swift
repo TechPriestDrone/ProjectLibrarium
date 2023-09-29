@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct ProjectLibrariumApp: App {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(named: "PageColor")
+        UISearchBar.appearance().backgroundColor = UIColor(named: "PageColor")
+        UIToolbar.appearance().backgroundColor = UIColor.green
+    }
     var body: some Scene {
         WindowGroup {
             LibrariumMainView(viewModel: LibrariumViewModel(searchService: SearchServices()))
