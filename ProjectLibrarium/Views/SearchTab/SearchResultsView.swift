@@ -20,7 +20,12 @@ struct SearchResultsView: View {
         HStack{
             Image(systemName: "star")
             if let rating = book.averageRating {
-                Text(String(rating))
+                if (String(format: "%g", rating)) == (String(Int(rating.rounded(.up)))){
+                    Text("\(String(format: "%g", rating))")
+                } else {
+                    Text(String(format: "%.1f", rating))
+                }
+                // on the fence about wheter to allow the 5.0 or leave the logic in the view
             }
             if let test = Constants.checkIfBookIsRead(bookToCheck: book, array: readBooks){
                 Image(systemName: test)
