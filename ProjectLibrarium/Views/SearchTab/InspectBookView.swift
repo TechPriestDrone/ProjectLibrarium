@@ -28,7 +28,13 @@ struct InspectBookView: View {
                     
                     HStack{
                         Image(systemName: "star")
-                        Text(String(averageRating))
+                            if (String(format: "%g", averageRating)) == (String(Int(averageRating.rounded(.up)))){
+                                Text("\(String(format: "%g", averageRating))")
+                            } else {
+                                Text(String(format: "%.1f", averageRating))
+                            }
+                            // on the fence about wheter to allow the 5.0 or leave the logic in the view
+//                        Text(String(averageRating))
                     }
                     Text("Summary: \(librariumViewModel.singleBookDetails.description)")
                     
@@ -66,6 +72,6 @@ struct InspectBookView: View {
 
 struct InspectBookView_Previews: PreviewProvider {
     static var previews: some View {
-        InspectBookView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()), book: SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Issac Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.34534, coverId: 7890714))
+        InspectBookView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()), book: SearchResults(id: "123124", title: "ABC", authorId: ["Asimov"], authorName: ["Issac Asimov"], amazonId: ["someID"], goodreadsId: ["someID"], averageRating: 3.2424, coverId: 7890714))
     }
 }

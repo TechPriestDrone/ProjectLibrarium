@@ -47,7 +47,7 @@ struct InfoSheetView: View {
                     }
                     Spacer()
                     ScrollView{
-                        Text("CEO\nLital\nKoral\nShutterfly Staff")
+                        Text("Shutterfly Israel")
                     }
                     
                 }
