@@ -37,6 +37,7 @@ struct InspectBookView: View {
 //                        Text(String(averageRating))
                     }
                     Text("Summary: \(librariumViewModel.singleBookDetails.description)")
+                        .padding()
                     
                     Button {
                         librariumViewModel.addtoReadBooks(bookToAdd: ReadBooksModel(bookInfo: book, bookDetails: librariumViewModel.singleBookDetails))
@@ -61,12 +62,6 @@ struct InspectBookView: View {
             Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
             await librariumViewModel.fetchBookDetailsFromOpenLibrary(bookId: book.id)
         }
-//        .alert("ERROR Adding book", isPresented: $librariumViewModel.readBookAlreadyPresentAlert) {
-//            Button("OK", role: .cancel) {}
-//        } message: {
-//            Text("\()")
-//        }
-
     }
 }
 
