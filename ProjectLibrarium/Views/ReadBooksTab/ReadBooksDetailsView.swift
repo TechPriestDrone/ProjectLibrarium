@@ -26,6 +26,7 @@ struct ReadBooksDetailsView: View {
 //            CoversDisplayView(coversToDisplay: book.bookDetails.covers)
 //            makes the view crash due to memory aces. might be a nuke issue
             Text("Summary: \(book.bookDetails.description)")
+                .padding()
             Spacer()
             HStack{
                 Button {
