@@ -14,7 +14,6 @@ struct ReadBooksView: View {
         VStack{
             let booksForList = librariumViewModel.readBookList
                 ReadBooksShelfView(librariumViewModel: librariumViewModel, listOfBooks: booksForList, sortBy: .favorites)
-            
         }
     }
 }

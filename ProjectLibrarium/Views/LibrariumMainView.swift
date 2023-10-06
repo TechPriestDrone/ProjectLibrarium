@@ -22,16 +22,23 @@ struct LibrariumMainView: View {
                         Text("Search")
                         Image(systemName: "doc.text.magnifyingglass")
                     }
+                    .background {
+                        Color("PageColor")
+                            .ignoresSafeArea()
+                    }
                 ReadBooksView(librariumViewModel: viewModel)
                     .tabItem {
                         Text("My Shelf")
                         Image(systemName: "books.vertical")
                     }
+                    .background {
+                        Color("PageColor")
+                            .ignoresSafeArea()
+                    }
             }
             .background {
                 Color("PageColor")
                     .ignoresSafeArea()
-                
             }
         } else {
             LoadingSplashView(librariumViewModel: viewModel)

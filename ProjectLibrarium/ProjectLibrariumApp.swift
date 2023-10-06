@@ -11,8 +11,8 @@ import SwiftUI
 struct ProjectLibrariumApp: App {
     init() {
         UITabBar.appearance().backgroundColor = UIColor(named: "PageColor")
+        UITabBar.appearance().barTintColor = UIColor(named: "PageColor")
         UISearchBar.appearance().backgroundColor = UIColor(named: "PageColor")
-        UIToolbar.appearance().backgroundColor = UIColor.green
     }
     var body: some Scene {
         WindowGroup {

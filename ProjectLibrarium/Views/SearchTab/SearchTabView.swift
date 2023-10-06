@@ -86,6 +86,7 @@ struct SearchTabView: View {
                             }
                         }
                     .frame(width: UIScreen.main.bounds.width)
+                    .toolbarBackground(Color("PageColor"), for: .navigationBar)
                     .background {
                         Color("PageColor")
                             .ignoresSafeArea()
