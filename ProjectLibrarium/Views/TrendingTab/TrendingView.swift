@@ -23,7 +23,7 @@ struct TrendingView: View {
                 }
                 .font(Constants.appFont)
             } else {
-                BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Trending Books")
+                BookShelfView(listOfBooks: librariumViewModel.openLibraryTrending, titleOfPage: "Today's Trending Books")
                     .toolbar{
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
@@ -51,3 +51,4 @@ struct TrendingView_Previews: PreviewProvider {
         TrendingView(librariumViewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }
+

@@ -51,3 +51,6 @@ struct ContentView_Previews: PreviewProvider {
         LibrariumMainView(viewModel: LibrariumViewModel(searchService: SearchServicesMock()))
     }
 }
+
+
+// IF YOU SEE THE MAIN PAGE IT MEANS THE BOOL IS WORNG. CHNAGE isLoadingMainScreen IN THE MODEL BACK TO FALSE

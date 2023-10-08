@@ -24,25 +24,28 @@ struct BookShelfView: View {
                 Text("\(titleOfPage)")
                 LazyVGrid(columns: columns, spacing: 3) {
                     ForEach(listOfBooks){ book in
-                        BookOnShelfView(bookTitle: book.title, isFavorite: nil)
+//                        BookOnShelfView(bookTitle: book.title, isFavorite: nil)
+                        if let test = book.coverId{
+                            SingleTrendingBookView(coverId: test)
+                        }
                     }
                 }
 //                .background(.brown)
-                .background(BackgroundBrown())
-                .padding()
-                .padding(.vertical, -4)
-                .border(.brown, width: 12)
+//                .background(BackgroundBrown())
+//                .padding()
+//                .padding(.vertical, -4)
+//                .border(.brown, width: 12)
 //                .frame(height:550)
                 VStack{
-                    Text("Didn't find anything you like?")
-                    Text("Check in tomorrow")
+                    Text("Check what's trending tomorrow")
                 }
                     .multilineTextAlignment(.center)
                     .font(Constants.appFont)
                 Spacer(minLength: 100)
             }
-            .padding(.horizontal, 50)
-            .navigationBarTitleDisplayMode(.inline)
+//            .padding(.horizontal, 50)
+            .padding()
+//            .navigationBarTitleDisplayMode(.inline)
             .background {
                 Color("PageColor")
                     .ignoresSafeArea()

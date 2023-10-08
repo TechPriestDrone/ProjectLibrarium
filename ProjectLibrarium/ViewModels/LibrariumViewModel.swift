@@ -29,7 +29,7 @@ class LibrariumViewModel: ObservableObject{
     @Published var showSheetBookInfo: Bool = false
     @Published var isLoadingTrending: Bool = false
     @Published var isLoadingSearchingBooks: Bool = false
-    @Published var isLoadingMainScreen: Bool = true
+    @Published var isLoadingMainScreen: Bool = false
     @Published var bookSearchIsEmpty: Bool = false
     @Published var readBookAlreadyPresentAlert: Bool = false
     
