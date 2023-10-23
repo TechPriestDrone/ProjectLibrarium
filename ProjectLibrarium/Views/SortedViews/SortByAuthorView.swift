@@ -26,7 +26,6 @@ struct SortByAuthorView: View {
                                 Image(systemName: "rosette")
                             }
                         }
-//                                BookOnShelfView(bookTitle: result.bookInfo.title, isFavorite: result.favorite)
                     }
                 }
             } label: {
@@ -34,7 +33,6 @@ struct SortByAuthorView: View {
             }
         }
         .scrollContentBackground(.hidden)
-//            .listStyle(.plain)
         .background {
             Color("PageColor")
         }

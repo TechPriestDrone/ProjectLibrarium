@@ -10,12 +10,11 @@ import SwiftUI
 struct SortedView: View {
     @StateObject var librariumViewModel: LibrariumViewModel
     let listOfBooks: [ReadBooksModel]
-//    var sortBy: LibrariumViewModel.SortByOptions
     
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible()),
+//        GridItem(.flexible()),
     ]
     
     var body: some View {

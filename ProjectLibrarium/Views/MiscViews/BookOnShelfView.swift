@@ -10,8 +10,8 @@ import SwiftUI
 struct BookOnShelfView: View {
     let bookTitle: String
     let isFavorite: Bool?
-    let widthOfBook: CGFloat = 90
-    let heightOfBook: CGFloat = 180
+    let widthOfBook: CGFloat = 180
+    let heightOfBook: CGFloat = 90
     
     var body: some View {
         VStack{
@@ -30,7 +30,7 @@ struct BookOnShelfView: View {
                             .foregroundColor(.white)
                             .frame(width: (widthOfBook - 6), height: (heightOfBook - 40))
                         Text(bookTitle)
-                            .rotationEffect(.degrees(90))
+//                            .rotationEffect(.degrees(90))
                             .font(.system(size: 15))
                     }
                 }

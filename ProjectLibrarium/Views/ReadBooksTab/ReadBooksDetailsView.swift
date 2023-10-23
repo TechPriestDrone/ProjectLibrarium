@@ -23,8 +23,9 @@ struct ReadBooksDetailsView: View {
             }
 
             Text(book.bookInfo.title)
-//            CoversDisplayView(coversToDisplay: book.bookDetails.covers)
-//            makes the view crash due to memory aces. might be a nuke issue
+            if let authorName = book.bookInfo.authorName?.first {
+                Text("By: \(authorName)")
+            }
             Text("Summary: \(book.bookDetails.description)")
                 .padding()
             Spacer()
